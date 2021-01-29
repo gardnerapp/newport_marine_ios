@@ -13,18 +13,20 @@ class CustomScaffold extends StatelessWidget {
           title: Text(
             "Newport Marine",
             style: TextStyle(
-              color: Colors.black87,
-              fontSize: 20.0,
+              color: Colors.white,
+              fontWeight: FontWeight.w300,
+              letterSpacing: 1.0,
+              fontSize: 25.0,
             ),
           ),
           elevation: 16.0,
           leading: IconButton(
               icon: Icon(
                 Icons.directions_boat,
-                color: Colors.black87,
+                color: Colors.white,
                 size: 30.0,
               ),
-              splashColor: Colors.white,
+              splashColor: Colors.white70,
               onPressed: () {})),
       body: widget,
     );
