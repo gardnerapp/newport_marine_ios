@@ -22,13 +22,11 @@ class _CreateBoatState extends State<CreateBoat> {
       child: Form(
         key: _key,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Text("Please tell us about your vessel", style: TextStyle(
-              color: Colors.black87, fontSize: 20.0, fontWeight: FontWeight.w300
-            )),
-            SizedBox(height: 25.0),
+            Text("Tell us about your vessel", style: formTitleStyle()),
+            //SizedBox(height: 25.0),
             Container(
                 width: 400,
                 child: TextFormField(
@@ -42,11 +40,13 @@ class _CreateBoatState extends State<CreateBoat> {
                       ? "You forget to enter the name of your vessel !"
                       : null,
                 )),
-            SizedBox(height: 25.0),
-            Slider(value: length,
+            //SizedBox(height: 25.0),
+            Text("My vessel is $length ft.", style: formTitleStyle()),
+            Slider(
+              value: length,
                 min: 0,
                 max: 250,
-                divisions: 25,
+                divisions: 50,
                 label: "$length ft.",
                 activeColor: Colors.blueGrey[200],
                 onChanged: (val){
@@ -55,7 +55,23 @@ class _CreateBoatState extends State<CreateBoat> {
                   });
                 },
             ),
-            SizedBox(height: 25.0),
+           // SizedBox(height: 25.0),
+            Text("My vessel is located at:", style: formTitleStyle()),
+           // SizedBox(height: 25.0),
+            Container(
+                width: 400,
+                child: TextFormField(
+                  decoration: textInputDecoration("Marina..."),
+                  onChanged: (val) {
+                    setState(() {
+                      location = val;
+                    });
+                  },
+                  validator: (val) => val.isEmpty
+                      ? "Where do you doc your vessel?"
+                      : null,
+                )),
+         //   SizedBox(height: 25.0),
             Container(
                 width: 400,
                 child: customRaisedIconButton(
