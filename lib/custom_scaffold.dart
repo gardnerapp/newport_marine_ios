@@ -11,7 +11,7 @@ class CustomScaffold extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
           title: Text(
-            "Newport Marine",
+            "Our Services",
             style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.w300,
