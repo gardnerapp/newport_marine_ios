@@ -1,6 +1,7 @@
 import 'package:dilibro_boat/app_bar_styling.dart';
 import 'package:dilibro_boat/forms/form_styles.dart';
 import 'package:dilibro_boat/forms/raised_icon_style.dart';
+import 'package:dilibro_boat/services/services_home.dart';
 import 'package:flutter/material.dart';
 import '../models/boat.dart';
 
@@ -20,6 +21,7 @@ class _CreateBoatState extends State<CreateBoat> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 16.0,
         title: Text("My Boat", style: appBarTitle()),
       ),
         body: Container(
@@ -92,7 +94,9 @@ class _CreateBoatState extends State<CreateBoat> {
                   iconDecoration(Icons.directions_boat),
                   () async {
                     if (_key.currentState.validate()) {
-                      //TODO loading, submit request
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => ServicesHome())
+                      );
                     }
                   },
                 ))

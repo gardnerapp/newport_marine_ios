@@ -1,3 +1,4 @@
+import 'package:dilibro_boat/forms/create_boat.dart';
 import 'package:dilibro_boat/forms/form_styles.dart';
 import 'package:dilibro_boat/forms/raised_icon_style.dart';
 import 'package:flutter/material.dart';
@@ -129,7 +130,9 @@ class _SignUpState extends State<SignUp> {
                     iconDecoration(Icons.send),
                         () async {
                       if (_key.currentState.validate()) {
-                        //TODO loading, submit request
+                        Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => CreateBoat())
+                        );
                       }
                     },
                   ))
