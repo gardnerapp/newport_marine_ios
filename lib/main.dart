@@ -1,12 +1,12 @@
 
 import 'package:dilibro_boat/appointments/available_appointment_page_view.dart';
-import 'package:dilibro_boat/custom_scaffold.dart';
+import 'package:dilibro_boat/authentication_pages/auth.dart';
+import 'package:dilibro_boat/app_bar_styling.dart';
 import 'package:dilibro_boat/forms/create_boat.dart';
 import 'package:dilibro_boat/services/services_home.dart';
 import 'package:flutter/material.dart';
 
-//todo //HSVColor
-// // //#323966 heex colo
+
 
 void main() {
   runApp(MyApp());
@@ -22,18 +22,17 @@ class MyApp extends StatelessWidget {
           primaryColor: Colors.blueGrey[400],
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        home: CustomScaffold(
-          widget: Home(),
-        ));
+        home: Home(),
+        );
   }
 }
 
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(child: ServicesHome()
+    return  Auth();
+    //ServicesHome()
         // CreateBoat()
         //AppointmentPageView()
-        );
   }
 }
