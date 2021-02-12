@@ -1,8 +1,11 @@
+import 'dart:convert';
+
 import 'package:dilibro_boat/api/authentication_request.dart';
 import 'package:dilibro_boat/api/error.dart';
 import 'package:dilibro_boat/forms/create_boat.dart';
 import 'package:dilibro_boat/forms/form_styles.dart';
 import 'package:dilibro_boat/forms/raised_icon_style.dart';
+import 'package:dilibro_boat/models/user.dart';
 import 'package:flutter/material.dart';
 import'package:http/http.dart' as http;
 
@@ -140,8 +143,9 @@ class _SignUpState extends State<SignUp> {
                         try {
                           var req = await auth.createUser(name, email, phone, password, passwordConfirmation);
                           if (req.statusCode == 200) {
+                            User user = User.fromMap(jsonDecode(req.body));
                             Navigator.push(context,
-                                MaterialPageRoute(builder: (context) => CreateBoat())
+                                MaterialPageRoute(builder: (context) => CreateBoat(user: user,))
                             );
                           }else{
                             Navigator.push(context, MaterialPageRoute(

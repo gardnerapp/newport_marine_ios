@@ -1,6 +1,7 @@
 import 'package:dilibro_boat/app_bar_styling.dart';
 import 'package:dilibro_boat/forms/form_styles.dart';
 import 'package:dilibro_boat/forms/raised_icon_style.dart';
+import 'package:dilibro_boat/models/user.dart';
 import 'package:dilibro_boat/services/services_home.dart';
 import 'package:flutter/material.dart';
 import '../models/boat.dart';
@@ -8,6 +9,9 @@ import '../models/boat.dart';
 
 // A form for creating user Boat
 class CreateBoat extends StatefulWidget {
+  final User user;
+
+  const CreateBoat({Key key, this.user}) : super(key: key);
   @override
   _CreateBoatState createState() => _CreateBoatState();
 }
