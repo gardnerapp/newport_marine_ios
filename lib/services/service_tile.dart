@@ -1,3 +1,4 @@
+import 'package:dilibro_boat/services/wash/wash_page.dart';
 import 'package:flutter/material.dart';
 
 
@@ -17,7 +18,9 @@ class ServicesTile extends StatelessWidget {
       shadowColor: Colors.blueGrey,
       child: InkWell(
         splashColor: Colors.blueGrey,
-        onTap: () {},
+        onTap: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => WashPage()));
+        },
         child: Container(
           height: 350.0,
           padding: EdgeInsets.all(10.0),
@@ -33,6 +36,7 @@ class ServicesTile extends StatelessWidget {
                     image: AssetImage(asset)),
               ),
               ListTile(
+
                 leading: Icon(icon, size: 30.0, color: Colors.blueGrey[600],),
                 title: Text(title, style: TextStyle(fontSize: 22.0), textAlign: TextAlign.left,),
                 subtitle: Text(subTitle, style: TextStyle(fontSize: 16.0), textAlign: TextAlign.left,),

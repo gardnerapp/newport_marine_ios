@@ -1,14 +1,20 @@
+import 'package:dilibro_boat/api/authentication_request.dart';
+import 'package:dilibro_boat/api/error.dart';
 import 'package:dilibro_boat/forms/create_boat.dart';
 import 'package:dilibro_boat/forms/form_styles.dart';
 import 'package:dilibro_boat/forms/raised_icon_style.dart';
 import 'package:flutter/material.dart';
+import'package:http/http.dart' as http;
 
 class SignUp extends StatefulWidget {
   @override
   _SignUpState createState() => _SignUpState();
 }
 
+//TODO Strong password Sanitization
+
 class _SignUpState extends State<SignUp> {
+  AuthenticationRequest auth = AuthenticationRequest();
   final _key = GlobalKey<FormState>();
   String name;
   String email;
@@ -111,10 +117,11 @@ class _SignUpState extends State<SignUp> {
               Container(
                   width: 400,
                   child: TextFormField(
+                    obscureText: true,
                     decoration: textInputDecoration("Password Confirmation"),
                     onChanged: (val){
                       setState(() {
-                        name = val;
+                        passwordConfirmation = val;
                       });
                     },
                     validator: (val) => val != password ? "Your Passwords Don't Match" : null,
@@ -130,9 +137,26 @@ class _SignUpState extends State<SignUp> {
                     iconDecoration(Icons.send),
                         () async {
                       if (_key.currentState.validate()) {
-                        Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => CreateBoat())
-                        );
+                        try {
+                          var req = await auth.createUser(name, email, phone, password, passwordConfirmation);
+                          if (req.statusCode == 200) {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) => CreateBoat())
+                            );
+                          }else{
+                            Navigator.push(context, MaterialPageRoute(
+                                builder: (context) => CreateUserErrorPage()
+                            ));
+                          }
+                        } on Exception catch (e) {
+                          Navigator.push(context, MaterialPageRoute(
+                              builder: (context) => CreateUserErrorPage()
+                          ));
+                        }
+                        
+                        //Detect Json Errors and status code errors
+                        //And then route properly
+                          
                       }
                     },
                   ))

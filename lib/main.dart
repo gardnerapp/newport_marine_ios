@@ -1,10 +1,12 @@
 
-import 'package:dilibro_boat/appointments/available_appointment_page_view.dart';
+import 'package:dilibro_boat/appointments/calender.dart';
 import 'package:dilibro_boat/authentication_pages/auth.dart';
 import 'package:dilibro_boat/app_bar_styling.dart';
 import 'package:dilibro_boat/forms/create_boat.dart';
 import 'package:dilibro_boat/services/services_home.dart';
+import 'package:dilibro_boat/services/wash/wash_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 
 
@@ -17,23 +19,24 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primaryColor: Colors.blueGrey[400],
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-        ),
-        home: Home(),
-        );
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primaryColor: Colors.greenAccent[200],
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      home: Home(),
+    );
   }
 }
 
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return  Auth();
-    //ServicesHome()
-    // CreateBoat()
-        // Auth()
-        //AppointmentPageView()
+    return //WashPage();
+
+    Auth();
+    //Calender();
+    //ServicesHome();
+   // CreateBoat();
   }
 }

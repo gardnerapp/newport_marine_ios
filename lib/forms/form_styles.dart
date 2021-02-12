@@ -7,8 +7,8 @@ textInputDecoration(String label) {
     labelStyle: TextStyle(color: Colors.black87, fontSize: 20.0),
     fillColor: Colors.white,
     filled: true,
-    enabledBorder: formBorder(Colors.blueGrey),
-    focusedBorder: formBorder(Colors.blueGrey[200]),
+    enabledBorder: formBorder(Colors.blueAccent),
+    focusedBorder: formBorder(Colors.lightBlueAccent),
     errorBorder: formBorder(Colors.red),
     contentPadding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
   );
@@ -22,6 +22,6 @@ OutlineInputBorder formBorder(Color color) {
 
 TextStyle formTitleStyle(){
   return TextStyle(
-      color: Colors.black87, fontSize: 20.0, fontWeight: FontWeight.w300
+      color: Colors.black87, fontSize: 20.0, fontWeight: FontWeight.w400
   );
 }

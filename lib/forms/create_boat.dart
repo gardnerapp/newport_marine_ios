@@ -4,8 +4,8 @@ import 'package:dilibro_boat/forms/raised_icon_style.dart';
 import 'package:dilibro_boat/services/services_home.dart';
 import 'package:flutter/material.dart';
 import '../models/boat.dart';
+//TODO IUtalicize form input
 
-//TODO make sliude same width as other form elems
 // A form for creating user Boat
 class CreateBoat extends StatefulWidget {
   @override
@@ -50,8 +50,8 @@ class _CreateBoatState extends State<CreateBoat> {
             Text("My vessel is $length ft.", style: formTitleStyle()),
             SliderTheme(
                   data: SliderTheme.of(context).copyWith(
-                    activeTrackColor: Colors.blueGrey[400],
-                    inactiveTrackColor: Colors.blueGrey[100],
+                    activeTrackColor: Colors.greenAccent[800],
+                    inactiveTrackColor: Colors.greenAccent[800],
                     trackHeight: 3.0,
                     thumbShape: RoundSliderThumbShape(enabledThumbRadius: 12.0),
                     overlayShape: RoundSliderOverlayShape(overlayRadius: 28.0),
@@ -62,7 +62,7 @@ class _CreateBoatState extends State<CreateBoat> {
                     max: 250,
                     divisions: 50,
                     label: "$length ft.",
-                    activeColor: Colors.blueGrey[200],
+                    activeColor: Colors.greenAccent[800],
                     onChanged: (val) {
                       setState(() {
                         length = val;
