@@ -1,7 +1,12 @@
+import 'dart:convert';
+import 'package:dilibro_boat/forms/create_boat.dart';
 import 'package:dilibro_boat/api/authentication_request.dart';
+import 'package:dilibro_boat/authentication_pages/login_error.dart';
 import 'package:dilibro_boat/forms/form_styles.dart';
 import 'package:dilibro_boat/forms/raised_icon_style.dart';
+import 'package:dilibro_boat/models/user.dart';
 import 'package:flutter/material.dart';
+
 
 //TODO Reset Password
 // 9 12 times == password
@@ -34,7 +39,6 @@ class _SignInState extends State<SignIn> {
               child: TextFormField(
                 decoration: textInputDecoration("Phone"),
                 onChanged: (val) => setState(() => phone = val),
-                validator: (val) => null,
               )
             ),
             SizedBox(height: 50),
@@ -44,7 +48,6 @@ class _SignInState extends State<SignIn> {
                 obscureText: true,
                 decoration: textInputDecoration("Password"),
                 onChanged: (val) => setState(() => password = val),
-                validator: (val) => null,
               ),
             ),
             SizedBox(height: 50),
@@ -57,14 +60,38 @@ class _SignInState extends State<SignIn> {
                   ),
                   iconDecoration(Icons.send),
                       () async {
-                    if (_key.currentState.validate()) {
-                      await auth.login(phone, password);
-                    }
-                  },
+                        if (_key.currentState.validate()) {
+                          try {
+                            var req = await auth.login(phone, password);
+                            if (req.statusCode == 202) {
+                              User user = User.fromMap(jsonDecode(req.body));
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          CreateBoat(user: user)));
+                            } else {
+                              print("Non Exception Executed ");
+                              PushError();
+                            }
+                          } on Exception catch (e) {
+                            print(e.toString());
+                            print("Exeption Executed in Login");
+                            PushError();
+                          }
+                        }
+                      },
                 ))
           ],
         )
       )
     );
   }
+
+  void PushError(){
+    Navigator.push(context, MaterialPageRoute(
+        builder: (context) => LoginError()
+    ));
+  }
+
 }

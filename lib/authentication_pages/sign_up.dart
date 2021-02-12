@@ -7,7 +7,7 @@ import 'package:dilibro_boat/forms/form_styles.dart';
 import 'package:dilibro_boat/forms/raised_icon_style.dart';
 import 'package:dilibro_boat/models/user.dart';
 import 'package:flutter/material.dart';
-import'package:http/http.dart' as http;
+
 
 class SignUp extends StatefulWidget {
   @override
@@ -148,14 +148,10 @@ class _SignUpState extends State<SignUp> {
                                 MaterialPageRoute(builder: (context) => CreateBoat(user: user,))
                             );
                           }else{
-                            Navigator.push(context, MaterialPageRoute(
-                                builder: (context) => CreateUserErrorPage()
-                            ));
+                            PushError();
                           }
                         } on Exception catch (e) {
-                          Navigator.push(context, MaterialPageRoute(
-                              builder: (context) => CreateUserErrorPage()
-                          ));
+                          PushError();
                         }
                         
                         //Detect Json Errors and status code errors
@@ -168,4 +164,11 @@ class _SignUpState extends State<SignUp> {
           ),
         ) );
   }
+
+  void PushError(){
+    Navigator.push(context, MaterialPageRoute(
+        builder: (context) => CreateUserErrorPage()
+    ));
+  }
+
 }

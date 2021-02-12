@@ -18,8 +18,10 @@ class _WashPageState extends State<WashPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: customAppBar("Daily Wash", Icons.arrow_back, (){
-
-      }, Icons.shopping_cart, (){}),
+        Navigator.pop(context);
+      }, Icons.directions_boat, (){
+        //Push to checkout
+      }),
         body: ListView(
           padding: const EdgeInsets.all(25.0),
           children: <Widget>[
