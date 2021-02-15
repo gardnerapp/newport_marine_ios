@@ -1,5 +1,7 @@
 import 'package:dilibro_boat/app_bar_styling.dart';
+import 'package:dilibro_boat/appointments/book_appointment.dart';
 import 'package:dilibro_boat/forms/raised_icon_style.dart';
+import 'package:dilibro_boat/services/wash/occurence.dart';
 import 'package:dilibro_boat/services/wash/wash_switch_tile.dart';
 import 'package:flutter/material.dart';
 
@@ -12,12 +14,21 @@ class WashPage extends StatefulWidget {
 }
 
 class _WashPageState extends State<WashPage> {
-  double cost = 16 * 22.0;
-  double boatLen = 22.0;
+  DateTime selectedDate = DateTime.now();
+
+  //TODO figure out how to combine Time of day with DateTime
+  //TODO Store details into map in order to make Reciept, this JSON will be passwed as text to the backend
+  //Map<String, double> tring == the service, double is the cost per foor of service
+  TimeOfDay selectedTime = TimeOfDay(hour: 07, minute: 00);
+  double cost = costPerFoot * boatLen;
+  static double costPerFoot = 16.0;
+  static double boatLen = 22.0;
+  String additionalInstructions;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar("Daily Wash", Icons.arrow_back, (){
+      appBar: customAppBar("Wash", Icons.arrow_back, (){
         Navigator.pop(context);
       }, Icons.directions_boat, (){
         //Push to checkout
@@ -27,17 +38,41 @@ class _WashPageState extends State<WashPage> {
           children: <Widget>[
             SizedBox(height: 5.0),
             Text(
-              "Our Washes typically take an hour\nPlease be at the dock 10 minutes before arrival\nStandard Wash \$16.0\\ft",
+              "Our Washes typically take 1-2 hours\nPlease be at the dock 10 minutes before arrival",
               style: instructionsTextStyle(),
               textAlign: TextAlign.center,
             ),
+            Divider(height: 20.0, thickness: 2.5, color: Colors.blueGrey[600]),
             SizedBox(height: 10),
+            Text(
+              "Wash Frequency?",
+              style: instructionsTextStyle(),
+              textAlign: TextAlign.center,
+            ),
+            Occurence(
+            ),
+            SizedBox(height: 10),
+            Divider(height: 20.0, thickness: 2.5, color: Colors.blueGrey[600]),
+            Text(
+              "Appointment Time and Date:",
+              style: instructionsTextStyle(),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(height: 15),
+            BookAppointment(
+              handleChange: () {
+                setState(() {
+                  // Select && Display Time
+                });
+              }
+            ),
+            SizedBox(height: 15),
+            Divider(height: 20.0, thickness: 2.5, color: Colors.blueGrey[600]),
             Text(
               "Select Your Options:",
               style: instructionsTextStyle(),
               textAlign: TextAlign.center,
             ),
-            Divider(height: 20.0, thickness: 2.5, color: Colors.blueGrey[600]),
             SizedBox(height: 10),
             WashSwitchTile(
               option: "Stainless Steel",
@@ -63,10 +98,11 @@ class _WashPageState extends State<WashPage> {
                 }
               }),
             ),SizedBox(height: 10),
-           /* WashSwitchTile(
-              option: "Window Cleaning",
-              optionCost: 10.0,
-            ), */
+              WashSwitchTile(
+             option: "Compartment Cleaning * FREE *",
+                optionCost: 0.0,
+                handleChange: (bool value){},
+           ),
             WashSwitchTile(
               option: "Cabin Maid",
               optionCost: 16.0,
@@ -79,19 +115,46 @@ class _WashPageState extends State<WashPage> {
                 }
               }),
             ),
-            Text(
-              "Current Cost: \$$cost",
-              style: instructionsTextStyle().copyWith(fontSize: 20.0),
-              textAlign: TextAlign.center,
-            ),
+            SizedBox(height: 30.0,),
+            Container(
+              height: 200.0,
+              child: Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20.0),
+              ),
+              color: Colors.white70,
+              elevation: 16.0,
+
+              child: Column(crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  Text(
+                    "My Appointment: ",
+                    style: instructionsTextStyle().copyWith(
+                        fontSize: 20.0, decoration: TextDecoration.underline),
+                    textAlign: TextAlign.center,
+                  ),
+                  Text(
+                    "March 15th 12:00AM",
+                    style: instructionsTextStyle().copyWith(fontSize: 20.0),
+                    textAlign: TextAlign.center,
+                  ),
+                  Text(
+                    "Total: \$$cost",
+                  style: instructionsTextStyle().copyWith(fontSize: 20.0),
+                  textAlign: TextAlign.center,
+                ),
+              ],),
+            ),),
             SizedBox(height: 10),
+
             SizedBox(height: 15),
             customRaisedIconButton(
                 Text(
                   "Continue",
                   style: raisedIconTextStyle(),
                 ),
-                iconDecoration(Icons.calendar_today),
+                iconDecoration(Icons.directions_boat),
                 () {})
           ],
         ));

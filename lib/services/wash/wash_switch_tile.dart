@@ -1,3 +1,4 @@
+import 'package:dilibro_boat/services/wash/wash_styles.dart';
 import 'package:flutter/material.dart';
 
 class WashSwitchTile extends StatefulWidget {
@@ -17,22 +18,16 @@ class _WashSwitchTileState extends State<WashSwitchTile> {
   Widget build(BuildContext context) {
     return Container(
         child: Card(
-          elevation: 10.0,
+      elevation: 10.0,
       color: Colors.white70,
       child: SwitchListTile(
         title: Text(
           this.widget.option,
-          style: TextStyle(
-              color: Colors.black87,
-              fontSize: 20.0,
-              fontWeight: FontWeight.w500),
+          style: washCardTitle(),
         ),
         subtitle: Text(
           "${this.widget.optionCost} \\ft",
-          style: TextStyle(
-              color: Colors.black87,
-              fontSize: 16.0,
-              fontWeight: FontWeight.w300),
+          style: washCardSubtitle(),
         ),
         inactiveThumbColor: Colors.blueGrey,
         activeColor: Colors.greenAccent,
