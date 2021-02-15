@@ -1,5 +1,6 @@
 import 'package:dilibro_boat/app_bar_styling.dart';
 import 'package:dilibro_boat/forms/raised_icon_style.dart';
+import 'package:dilibro_boat/models/user.dart';
 import 'package:dilibro_boat/services/service_tile.dart';
 import 'package:flutter/material.dart';
 
@@ -10,6 +11,9 @@ import 'package:flutter/material.dart';
 
 
 class ServicesHome extends StatelessWidget {
+  final User user;
+
+  const ServicesHome({Key key, this.user}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(

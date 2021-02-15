@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:dilibro_boat/models/boat.dart';
 import 'package:http/http.dart' as http;
 import 'base_api.dart';
 
@@ -30,6 +31,18 @@ class AuthenticationRequest extends BaseAPI{
     });
 
     http.Response response = await http.post("http://localhost:3000/api/login", headers: headers, body: body);
+    return response;
+  }
+
+  Future<http.Response> createBoat(
+      int userId, String boatName, double boatLength, String location) async {
+    var body = jsonEncode({
+      'id': userId,
+      'boat': {'name': boatName, 'location': location, 'length': boatLength}
+    });
+
+    http.Response response = await http.post("http://localhost:3000/api/boats/", headers: headers, body: body);
+
     return response;
   }
 

@@ -40,10 +40,10 @@ class MyApp extends StatelessWidget {
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ThankYou();
-      WashPage();
+    return //ThankYou();
+     // WashPage();
 
-   // Auth();
+   Auth();
    // ServicesHome();
    // CreateBoat();
   }

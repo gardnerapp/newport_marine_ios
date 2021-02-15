@@ -1,3 +1,4 @@
+import 'package:dilibro_boat/api/authentication_request.dart';
 import 'package:dilibro_boat/app_bar_styling.dart';
 import 'package:dilibro_boat/forms/form_styles.dart';
 import 'package:dilibro_boat/forms/raised_icon_style.dart';
@@ -5,6 +6,7 @@ import 'package:dilibro_boat/models/user.dart';
 import 'package:dilibro_boat/services/services_home.dart';
 import 'package:flutter/material.dart';
 import '../models/boat.dart';
+import 'create_boat_error.dart';
 //TODO IUtalicize form input
 
 // A form for creating user Boat
@@ -17,6 +19,7 @@ class CreateBoat extends StatefulWidget {
 }
 
 class _CreateBoatState extends State<CreateBoat> {
+  AuthenticationRequest auth = AuthenticationRequest();
   final _key = GlobalKey<FormState>();
   String name;
   String location;
@@ -98,14 +101,25 @@ class _CreateBoatState extends State<CreateBoat> {
                   iconDecoration(Icons.directions_boat),
                   () async {
                     if (_key.currentState.validate()) {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => ServicesHome())
-                      );
-                    }
-                  },
-                ))
-          ],
-        ),
+                      var req = await auth.createBoat(this.widget.user.id, name, length, location );
+                      print(req.body);
+                      if (req.statusCode == 200) {
+                       //TODO Set Boat to User  Before Pushing
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => ServicesHome()));
+                          } else {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => CreateBoatError()));
+                          }
+                        }
+                      },
+                    ))
+              ],
+            ),
       ),
     ));
   }

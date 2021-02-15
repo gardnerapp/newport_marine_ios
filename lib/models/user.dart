@@ -1,9 +1,11 @@
+import 'package:dilibro_boat/models/boat.dart';
+
 class User{
   int id;
   String name;
   String email;
   String phone;
-  //TODO Boats
+  Boat boat;
 
   User({this.name, this.email, this.phone, this.id});
 
@@ -13,6 +15,10 @@ class User{
     this.name = map['name'];
     this.email = map['email'];
     this.phone = map['phone'];
+  }
+
+  User.addBoat(Boat boat){
+    this.boat = boat;
   }
 
 }
