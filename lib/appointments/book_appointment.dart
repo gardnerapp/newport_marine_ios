@@ -2,16 +2,17 @@ import 'package:dilibro_boat/appointments/book_floating_action_button.dart';
 import 'package:flutter/material.dart';
 
 class BookAppointment extends StatefulWidget {
-  final Function handleChange;
+  final Function handleDateChange;
+  final Function handleTimeChange;
 
-  const BookAppointment({Key key, this.handleChange}) : super(key: key);
+  const BookAppointment({Key key, this.handleDateChange, this.handleTimeChange}) : super(key: key);
   @override
   _BookAppointmentState createState() => _BookAppointmentState();
 }
 
 class _BookAppointmentState extends State<BookAppointment> {
   DateTime selectedDate = DateTime.now();
-  TimeOfDay selectedTime = TimeOfDay(hour: 07, minute: 00);
+  TimeOfDay selectedTime = TimeOfDay.now();
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -21,12 +22,12 @@ class _BookAppointmentState extends State<BookAppointment> {
             BookFloatingAction(iconData: Icons.calendar_today,
               onPressed: () {
                 _selectDate(context);
-                this.widget.handleChange(selectedDate);
+                this.widget.handleDateChange(selectedDate);
               },),
             BookFloatingAction(iconData: Icons.timer,
                 onPressed: () {
                   _selectTime(context);
-                  this.widget.handleChange(selectedTime);
+                  this.widget.handleTimeChange(selectedTime);
                 })
           ],
     );
@@ -59,10 +60,12 @@ class _BookAppointmentState extends State<BookAppointment> {
       context: context,
       initialTime: TimeOfDay(hour: 7, minute: 15)
     );
-    //TODO IF between acceptable range set Time ELSE display error
-    setState(() {
-      selectedTime = newTime;
-    });
+    
+    if (newTime != null) {
+      setState(() {
+        selectedTime = newTime;
+      });
+    }
   }
 
 }

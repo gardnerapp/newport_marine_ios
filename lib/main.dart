@@ -3,6 +3,7 @@ import 'package:dilibro_boat/appointments/book_appointment.dart';
 import 'package:dilibro_boat/authentication_pages/auth.dart';
 import 'package:dilibro_boat/app_bar_styling.dart';
 import 'package:dilibro_boat/forms/create_boat.dart';
+import 'package:dilibro_boat/models/boat.dart';
 import 'package:dilibro_boat/services/services_home.dart';
 import 'package:dilibro_boat/services/thank_you.dart';
 
@@ -41,10 +42,10 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return //ThankYou();
-     // WashPage();
+     WashPage(boat: Boat("hog", 22, "location"),);
 
-   Auth();
-   // ServicesHome();
+   //Auth();
+   //ServicesHome();
    // CreateBoat();
   }
 }
