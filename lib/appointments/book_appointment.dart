@@ -33,13 +33,14 @@ class _BookAppointmentState extends State<BookAppointment> {
     );
   }
 
+  //TODO Pressing OK Is Not Working
   _selectDate(BuildContext context) async {
     final DateTime picked = await showDatePicker(
         context: context,
         initialDate: selectedDate,
-      firstDate: DateTime(2000),
-      lastDate: DateTime(2025),
-      helpText: "Select Appointment",
+      firstDate: DateTime.now(),
+      lastDate: DateTime(2021, DateTime.september, 01),
+      helpText: "When Would You Like To Book Your Appointment",
       errorFormatText: 'Enter valid date',
       errorInvalidText: 'Enter date in valid range',
       builder: (context, child) {

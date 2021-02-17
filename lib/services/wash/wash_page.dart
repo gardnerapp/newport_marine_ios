@@ -2,8 +2,8 @@ import 'package:dilibro_boat/app_bar_styling.dart';
 import 'package:dilibro_boat/appointments/book_appointment.dart';
 import 'package:dilibro_boat/forms/raised_icon_style.dart';
 import 'package:dilibro_boat/models/boat.dart';
-import 'package:dilibro_boat/services/wash/occurence.dart';
 import 'package:dilibro_boat/services/wash/wash_switch_tile.dart';
+import 'package:dilibro_boat/services/wash/wash_text_styles.dart';
 import 'package:flutter/material.dart';
 
 //TODO weekly Wash Savings
@@ -22,15 +22,17 @@ class _WashPageState extends State<WashPage> {
   TimeOfDay selectedTime = TimeOfDay(hour: 07, minute: 00);
   //TODO figure out how to combine Time of day with DateTime
   //TODO Store details into map in order to make Reciept, this JSON will be passwed as text to the backend
-  //Map<String, double> tring == the service, double is the cost per foor of service
+  //create wash details list bullets
+  //move radio buttons to next page
+  // and do forms
 
-  double cost = costPerFoot * boatLen;
+  double cost = costPerFoot * 12.0;
   static double costPerFoot = 16.0;
-  static double boatLen = 22.0;
   String additionalInstructions;
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: customAppBar("Wash", Icons.arrow_back, (){
         Navigator.pop(context);
@@ -38,25 +40,15 @@ class _WashPageState extends State<WashPage> {
         //Push to checkout
       }),
         body: ListView(
-          padding: const EdgeInsets.all(25.0),
+          padding: const EdgeInsets.all(20.0),
           children: <Widget>[
             SizedBox(height: 5.0),
-            Text(
-              "Our Washes typically take 1-2 hours\nPlease be at the dock 10 minutes before arrival",
-              style: instructionsTextStyle(),
-              textAlign: TextAlign.center,
+            instructionText(
+              "Our Washes typically take 2-3 hours\n"
             ),
+            instructionText("Discounts for daily, weekly and biweekly wash plans\n"),
             Divider(height: 20.0, thickness: 2.5, color: Colors.blueGrey[600]),
-            SizedBox(height: 10),
-            Text(
-              "Wash Frequency?",
-              style: instructionsTextStyle(),
-              textAlign: TextAlign.center,
-            ),
-            Occurence(
-            ),
-            SizedBox(height: 10),
-            Divider(height: 20.0, thickness: 2.5, color: Colors.blueGrey[600]),
+            SizedBox(height: 15),
             Text(
               "Appointment Time and Date:",
               style: instructionsTextStyle(),
@@ -67,19 +59,16 @@ class _WashPageState extends State<WashPage> {
               handleDateChange: (DateTime date) => setState(() {selectedDate = date;}),
               handleTimeChange: (TimeOfDay time) => setState((){selectedTime = time;}),
             ),
-            SizedBox(height: 15),
+            SizedBox(height: 25),
             Divider(height: 20.0, thickness: 2.5, color: Colors.blueGrey[600]),
-            Text(
-              "Select Your Options:",
-              style: instructionsTextStyle(),
-              textAlign: TextAlign.center,
-            ),
-            SizedBox(height: 10),
+            SizedBox(height: 20),
+            instructionText("Select Your Options:"),
+            SizedBox(height: 20),
             WashSwitchTile(
               option: "Stainless Steel",
               optionCost: 5.0,
               handleChange: (bool value) => setState((){
-                double num = boatLen * 5.0;
+                double num = this.widget.boat.length * 5.0;
                 if(value){
                       cost += num;
                 }else{
@@ -91,7 +80,7 @@ class _WashPageState extends State<WashPage> {
               option: "Glass Polishing",
               optionCost: 3.0,
               handleChange: (bool value) => setState((){
-                double num = boatLen * 3.0;
+                double num = this.widget.boat.length * 3.0;
                 if(value){
                   cost += num;
                 }else{
@@ -99,27 +88,29 @@ class _WashPageState extends State<WashPage> {
                 }
               }),
             ),SizedBox(height: 10),
-              WashSwitchTile(
-             option: "Compartment Cleaning * FREE *",
-                optionCost: 0.0,
-                handleChange: (bool value){},
-           ),
             WashSwitchTile(
-              option: "Cabin Maid",
-              optionCost: 16.0,
-              handleChange: (bool value) => setState((){
-                double num = boatLen * 16.0;
-                if(value){
-                  cost += num;
-                }else{
-                  cost = cost - num;
-                }
-              }),
+              option: "Leather Protection",
+              optionCost: 0.0,
+              handleChange: (bool value) {},
             ),
-            SizedBox(height: 30.0,),
-            Container(height: 150.0,
+            SizedBox(height: 10),
+            WashSwitchTile(
+              option: "Soap Gun Wash",
+              optionCost:0.0,
+              handleChange: (bool value){},
+            ),SizedBox(height: 10),
+            WashSwitchTile(
+              option: "Compartment Cleaning * FREE *",
+              optionCost: 0.0,
+              handleChange: (bool value) {},
+            ),
+            SizedBox(
+              height: 30.0,
+            ),
+            Container(
+              height: 150.0,
               child: Card(
-              shape: RoundedRectangleBorder(
+                shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20.0),
               ),
                 elevation: 16.0,
@@ -161,10 +152,4 @@ class _WashPageState extends State<WashPage> {
         ));
   }
 
-  TextStyle instructionsTextStyle() {
-    return TextStyle(
-      color: Colors.black87,
-      fontSize: 18.0,
-    );
-  }
 }

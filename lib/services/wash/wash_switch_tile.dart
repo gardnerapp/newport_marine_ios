@@ -19,7 +19,7 @@ class _WashSwitchTileState extends State<WashSwitchTile> {
     return Container(
         child: Card(
       elevation: 10.0,
-      color: Colors.white70,
+      color: Colors.white,
       child: SwitchListTile(
         title: Text(
           this.widget.option,

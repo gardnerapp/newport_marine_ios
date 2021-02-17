@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+//TODO Potentially Delete
 class Occurence extends StatefulWidget {
 
   //TODO SetState of Parent to set cost per foot with CallBack
@@ -16,37 +16,31 @@ class _OccurenceState extends State<Occurence> {
       children: <Widget>[
         RadioListTile(
           activeColor: Colors.blueGrey,
-          value: 0,
-          groupValue: _groupValue,
-          onChanged: _handleChange,
-          title: Text("One Time Wash"),
-          subtitle: Text("\$13.00 /ft"),
+          title: titleText("Windows Cleaned"),
+          onChanged: (value) {  },
         ),
         RadioListTile(
           activeColor: Colors.blueGrey,
-          value: 1,
-          groupValue: _groupValue,
-          onChanged: _handleChange,
-          title: Text("Weekly Wash"),
-          subtitle: Text("\$10.00 /ft"),
+          title: titleText("Stainless Cleaned"),
+          onChanged: (value) {},
         ),
         RadioListTile(
           activeColor: Colors.blueGrey,
-          value: 2,
-          groupValue: _groupValue,
-          onChanged: _handleChange,
-          title: Text("Daily Wash"),
-          subtitle: Text("\$8.00 /ft"),
-        )
+          title: titleText("Leather Protection"),
+          onChanged: (value) {},
+        ),
+        RadioListTile(
+          activeColor: Colors.blueGrey,
+          title: titleText("Soap Gun Wash"),
+          onChanged: (value) {},
+        ),
       ],
     );
   }
 
-  _handleChange(int i){
-    setState(() {
-      _groupValue = i;
-
-    });
-
+  Text titleText(String title){
+    return Text(title, style: TextStyle(
+      color: Colors.black87, fontSize: 18.0
+    ));
   }
 }
