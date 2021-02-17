@@ -10,7 +10,7 @@ class BookFloatingAction extends StatelessWidget {
     return FloatingActionButton(
         onPressed: onPressed,
     backgroundColor: Colors.greenAccent,
-      child: Icon(iconData, size: 35.0, color: Colors.blueGrey[600],),
+      child: Icon(iconData, size: 35.0, color: Colors.black87,),
       elevation: 16.0,
       splashColor: Colors.blueGrey[600]
     );

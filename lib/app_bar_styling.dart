@@ -4,7 +4,7 @@ AppBar customAppBar(String title, IconData leadingIconData,
     Function leadingOnPressed, IconData actionIconData, actionOnPressed) {
   return AppBar(
     iconTheme: IconThemeData(
-      color: Colors.blueGrey[600],
+      color: Colors.black87,
     ),
     title: Text(
       title,
@@ -31,7 +31,7 @@ AppBar customAppBar(String title, IconData leadingIconData,
 
 TextStyle appBarTitle(){
   return TextStyle(
-    color: Colors.blueGrey[600],
+    color: Colors.black,
     fontWeight: FontWeight.w700,
     letterSpacing: 1.0,
     fontSize: 30.0,

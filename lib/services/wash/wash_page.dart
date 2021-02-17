@@ -1,7 +1,7 @@
 import 'package:dilibro_boat/app_bar_styling.dart';
-import 'package:dilibro_boat/appointments/book_appointment.dart';
 import 'package:dilibro_boat/forms/raised_icon_style.dart';
 import 'package:dilibro_boat/models/boat.dart';
+import 'package:dilibro_boat/services/appointments/book_appointment.dart';
 import 'package:dilibro_boat/services/wash/wash_switch_tile.dart';
 import 'package:dilibro_boat/services/wash/wash_text_styles.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +32,7 @@ class _WashPageState extends State<WashPage> {
 
   @override
   Widget build(BuildContext context) {
-
+//TODO wrap text in expandeds
     return Scaffold(
       appBar: customAppBar("Wash", Icons.arrow_back, (){
         Navigator.pop(context);
@@ -42,7 +42,7 @@ class _WashPageState extends State<WashPage> {
         body: ListView(
           padding: const EdgeInsets.all(20.0),
           children: <Widget>[
-            SizedBox(height: 5.0),
+            SizedBox(height: 10.0),
             instructionText(
               "Our Washes typically take 2-3 hours\n"
             ),
@@ -50,7 +50,7 @@ class _WashPageState extends State<WashPage> {
             Divider(height: 20.0, thickness: 2.5, color: Colors.blueGrey[600]),
             SizedBox(height: 15),
             Text(
-              "Appointment Time and Date:",
+              "Which time and date work for you? ",
               style: instructionsTextStyle(),
               textAlign: TextAlign.center,
             ),
