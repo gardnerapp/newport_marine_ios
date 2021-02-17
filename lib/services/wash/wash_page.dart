@@ -2,6 +2,7 @@ import 'package:dilibro_boat/app_bar_styling.dart';
 import 'package:dilibro_boat/forms/raised_icon_style.dart';
 import 'package:dilibro_boat/models/boat.dart';
 import 'package:dilibro_boat/services/appointments/book_appointment.dart';
+import 'package:dilibro_boat/services/services_reciept.dart';
 import 'package:dilibro_boat/services/wash/wash_switch_tile.dart';
 import 'package:dilibro_boat/services/wash/wash_text_styles.dart';
 import 'package:flutter/material.dart';
@@ -107,40 +108,8 @@ class _WashPageState extends State<WashPage> {
             SizedBox(
               height: 30.0,
             ),
-            Container(
-              height: 150.0,
-              child: Card(
-                shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20.0),
-              ),
-                elevation: 16.0,
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    Text(
-                      "My Appointment: ",
-                      style: instructionsTextStyle().copyWith(
-                          fontSize: 20.0, decoration: TextDecoration.underline),
-                      textAlign: TextAlign.center,
-                    ),
-                    Text(
-                      "${selectedDate.month}/${selectedDate.day} @ ${selectedTime.hour}:${selectedTime.minute}",
-                      style: instructionsTextStyle().copyWith(fontSize: 20.0),
-                      textAlign: TextAlign.center,
-                    ),
-                    Text(
-                      "Total: \$$cost",
-                      style: instructionsTextStyle().copyWith(fontSize: 20.0),
-                      textAlign: TextAlign.center,
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            SizedBox(height: 10),
-            SizedBox(height: 15),
+            ServicesReceipt(date: selectedDate, time: selectedTime, cost: cost),
+            SizedBox(height: 25),
             customRaisedIconButton(
                 Text(
                   "Continue",

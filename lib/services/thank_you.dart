@@ -1,4 +1,4 @@
-import 'package:dilibro_boat/services/receipt.dart';
+import 'package:dilibro_boat/services/full_receipt.dart';
 import 'package:dilibro_boat/services/services_home.dart';
 import 'package:flutter/material.dart';
 

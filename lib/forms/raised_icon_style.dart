@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 Icon iconDecoration(IconData iconData){
   return Icon(
     iconData,
-    color:Colors.blueGrey[600],
+    color:Colors.black87,
     size: 30.0,
   );
 }
@@ -17,7 +17,7 @@ RoundedRectangleBorder raisedButtonRoundedBorder(){
 
 TextStyle raisedIconTextStyle(){
   return TextStyle(
-    color: Colors.blueGrey[600],
+    color: Colors.black87,
     fontSize: 30.0
   );
 }

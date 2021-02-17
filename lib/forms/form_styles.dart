@@ -7,8 +7,8 @@ textInputDecoration(String label) {
     labelStyle: TextStyle(color: Colors.black87, fontSize: 20.0),
     fillColor: Colors.white,
     filled: true,
-    enabledBorder: formBorder(Colors.blueAccent),
-    focusedBorder: formBorder(Colors.lightBlueAccent),
+    enabledBorder: formBorder(Colors.blueGrey),
+    focusedBorder: formBorder(Colors.blueGrey),
     errorBorder: formBorder(Colors.red),
     contentPadding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
   );
