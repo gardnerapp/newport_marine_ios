@@ -35,15 +35,25 @@ class _FullDetailState extends State<FullDetail> {
         padding: const EdgeInsets.all(20.0),
         children: <Widget>[
           SizedBox(height: 10),
-          instructionText("Compound Wax & Polish"),
-          instructionText("One Season of Protection"),
+          instructionText("Compound Wax & Polish\n"),
+          instructionText("One Season of Protection\n"),
+          instructionText("Non-skid Cleaning\n"),
+          instructionText("Stainless Steel Polishing\n"),
+          instructionText("Window Polishing / RainX\n"),
+          instructionText("Eisen Glass Cleaning\n"),
+          instructionText("Oxidation Removal\n"),
+          Divider(height: 20.0, thickness: 2.5, color: Colors.blueGrey[600]),
+          SizedBox(height:15),
+          instructionText(
+            "Compound Polish/Wax Topside: \n",
+          ),
+          instructionText("Boats 20-30 @ \$28 / ft\n"),
+          instructionText("Boats 30-40 @ \$30 / ft\n"),
+          instructionText("Boats 40-100 @ \$37 / ft\n"),
           SizedBox(height: 15),
           Divider(height: 20.0, thickness: 2.5, color: Colors.blueGrey[600]),
-          SizedBox(height: 15),
-          Text(
+          instructionText(
             "Appointment Time and Date:",
-            style: instructionsTextStyle(),
-            textAlign: TextAlign.center,
           ),
           SizedBox(height: 15),
           BookAppointment(
@@ -53,85 +63,8 @@ class _FullDetailState extends State<FullDetail> {
           SizedBox(height: 25),
           Divider(height: 20.0, thickness: 2.5, color: Colors.blueGrey[600]),
           SizedBox(height: 20),
-          instructionText("Select Your Options:"),
-          SizedBox(height: 20),
-          WashSwitchTile(
-            option: "Non-skid Cleaning",
-            optionCost: 5.0,
-            handleChange: (bool value) => setState((){
-              double num = 22 * 5.0;
-              if(value){
-                cost += num;
-              }else{
-                cost = cost - num;
-              }
-            }),
-          ),SizedBox(height: 10),
-          WashSwitchTile(
-            option: "Stainless Steel Polishing",
-            optionCost: 5.0,
-            handleChange: (bool value) => setState((){
-              double num = 22 * 5.0;
-              if(value){
-                cost += num;
-              }else{
-                cost = cost - num;
-              }
-            }),
-          ),SizedBox(height: 10),
-          WashSwitchTile(
-            option: "Window Polishing/RainX",
-            optionCost: 5.0,
-            handleChange: (bool value) => setState((){
-              double num = 22 * 5.0;
-              if(value){
-                cost += num;
-              }else{
-                cost = cost - num;
-              }
-            }),
-          ),SizedBox(height: 10),
-          WashSwitchTile(
-            option: "Eisin Glass Cleaning",
-            optionCost: 5.0,
-            handleChange: (bool value) => setState((){
-              double num = 22 * 5.0;
-              if(value){
-                cost += num;
-              }else{
-                cost = cost - num;
-              }
-            }),
-          ),SizedBox(height: 10),
-          WashSwitchTile(
-            option: "Oxidation Removal",
-            optionCost: 5.0,
-            handleChange: (bool value) => setState((){
-              double num = 22 * 5.0;
-              if(value){
-                cost += num;
-              }else{
-                cost = cost - num;
-              }
-            }),
-          ),SizedBox(height: 10),
-          WashSwitchTile(
-            option: "Compound Polish /Wax Topside",
-            optionCost: 5.0,
-            handleChange: (bool value) => setState((){
-              double num = 22 * 5.0;
-              if(value){
-                cost += num;
-              }else{
-                cost = cost - num;
-              }
-            }),
-          ),SizedBox(height: 10),
           ServicesReceipt(date: selectedDate, time: selectedTime, cost: cost),
           SizedBox(height: 20),
-          AdditionalInstructions(callBack: (val) => setState((){
-            instructions = val;
-          }),),
           SizedBox(height: 25),
           customRaisedIconButton(
               Text(

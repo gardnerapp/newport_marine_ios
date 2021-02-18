@@ -7,6 +7,9 @@ import 'package:dilibro_boat/services/wash/wash_switch_tile.dart';
 import 'package:dilibro_boat/services/wash/wash_text_styles.dart';
 import 'package:flutter/material.dart';
 
+import 'cabin_maid.dart';
+import 'igl_switch.dart';
+
 //TODO weekly Wash Savings
 
 class WashPage extends StatefulWidget {
@@ -89,16 +92,54 @@ class _WashPageState extends State<WashPage> {
                 }
               }),
             ),SizedBox(height: 10),
-            WashSwitchTile(
-              option: "Leather Protection",
-              optionCost: 0.0,
-              handleChange: (bool value) {},
+            IGLWashSwitchTile(
+                option: "IGL Leather Protection",
+                optionCost: 300.0,
+                handleChange: (bool value) => setState((){
+                  double num = 300.0;
+                  if(value){
+                    cost +=num;
+                  }else{
+                    cost = cost -num;
+                  }
+                })
             ),
             SizedBox(height: 10),
-            WashSwitchTile(
-              option: "Soap Gun Wash",
-              optionCost:0.0,
-              handleChange: (bool value){},
+            IGLWashSwitchTile(
+              option: "IGL Window",
+              optionCost: 400.0,
+              handleChange: (bool value) => setState((){
+                double num = 400.0;
+                if(value){
+                  cost +=num;
+                }else{
+                  cost = cost -num;
+                }
+              })
+            ),SizedBox(height: 10),
+            IGLWashSwitchTile(
+              option: "IGL Teak",
+              optionCost:400.0,
+              handleChange: (bool value) => setState((){
+                double num = 300.0;
+                if(value){
+                  cost +=num;
+                }else{
+                  cost = cost -num;
+                }
+              }),
+            ),SizedBox(height: 10),
+            CabinWashSwitchTile(
+              option: "Cabin Maid",
+              optionCost: 16.0,
+              handleChange: (bool value) => setState((){
+                double num = 16.0;
+                if(value){
+                  cost +=num;
+                }else{
+                  cost = cost -num;
+                }
+              }),
             ),SizedBox(height: 10),
             WashSwitchTile(
               option: "Compartment Cleaning * FREE *",

@@ -26,7 +26,7 @@ class _WashSwitchTileState extends State<WashSwitchTile> {
           style: washCardTitle(),
         ),
         subtitle: Text(
-          "${this.widget.optionCost} \\ft",
+          "\$${this.widget.optionCost} \\ft",
           style: washCardSubtitle(),
         ),
         inactiveThumbColor: Colors.blueGrey,
