@@ -1,5 +1,4 @@
 class Boat{
-  int userId;
   final String name;
   final double length;
   final String location;

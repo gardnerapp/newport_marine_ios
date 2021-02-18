@@ -22,13 +22,15 @@ class _BookAppointmentState extends State<BookAppointment> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             BookFloatingAction(iconData: Icons.calendar_today,
-              onPressed: () {
-                _selectDate(context);
+              heroTag: "Date",
+              onPressed: () async {
+                await _selectDate(context);
                 this.widget.handleDateChange(selectedDate);
               },),
             BookFloatingAction(iconData: Icons.timer,
-                onPressed: () {
-                  _selectTime(context);
+                heroTag: "Time",
+                onPressed: () async {
+                  await _selectTime(context);
                   this.widget.handleTimeChange(selectedTime);
                 })
           ],
@@ -52,10 +54,12 @@ class _BookAppointmentState extends State<BookAppointment> {
         );
       },
     );
-    if (picked != null && picked != selectedDate)
+    if (picked != null) {
       setState(() {
         selectedDate = picked;
+        print(selectedDate);
       });
+    }
   }
 
   _selectTime(BuildContext context) async {

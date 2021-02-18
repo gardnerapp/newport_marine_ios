@@ -12,14 +12,11 @@ import 'package:flutter/material.dart';
 import 'cabin_maid.dart';
 import 'igl_switch.dart';
 
-//Create Sumarize Services table and then print addtiional instructions
-//Send the Request from this window
 
 class WashPage extends StatefulWidget {
   final User user;
-  final Boat boat;
 
-  const WashPage({Key key, this.boat, this.user}) : super(key: key);
+  const WashPage({Key key, this.user}) : super(key: key);
 
   @override
   _WashPageState createState() => _WashPageState();
@@ -34,22 +31,18 @@ class _WashPageState extends State<WashPage> {
 
   @override
   initState() {
-    cost = this.widget.boat.length * 16.0; //cost per wash foot
+    cost = this.widget.user.boat.length * 16.0; //cost per wash foot
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: customAppBar(
-            "Wash",
-            Icons.arrow_back,
-            () {
-              Navigator.pop(context);
-            },
-            Icons.directions_boat,
-            () {
-              //Push to checkout
-            }),
+        appBar: AppBar(
+              title: Text("Wash"),
+          leading: new IconButton(icon: Icon(Icons.arrow_back), onPressed: (){
+            Navigator.pop(context);
+          }),
+        ),
         body: ListView(
           padding: const EdgeInsets.all(20.0),
           children: <Widget>[
@@ -77,7 +70,7 @@ class _WashPageState extends State<WashPage> {
               option: "Stainless Steel",
               optionCost: 5.0,
               handleChange: (bool value) => setState(() {
-                double num = this.widget.boat.length * 5.0;
+                double num = this.widget.user.boat.length * 5.0;
                 if (value) {
                   cost += num;
                   services["Stainless Steel"] = num;
@@ -91,7 +84,7 @@ class _WashPageState extends State<WashPage> {
               option: "Glass Polishing",
               optionCost: 3.0,
               handleChange: (bool value) => setState((){
-                double num = this.widget.boat.length * 3.0;
+                double num = this.widget.user.boat.length * 3.0;
                 if(value){
                   cost += num;
                   services['Glass Polishing'] = num;

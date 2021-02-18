@@ -45,18 +45,30 @@ class MyApp extends StatelessWidget {
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return WashConfirmation();
-
-      //IGLHome();
+    return //WashConfirmation();
+     ServicesHome(
+      user: User(
+          name: "Corey",
+          phone: "5555559898",
+          email: "corey@example.com",
+          id: 0,
+          boat: Boat("hog", 22, "location")),
+    );
+    //IGLHome();
     //  FullDetail();
 
     //ThankYou();
-     WashPage(
-       user: User(name: "Corey", phone: "5555559898", email: "corey@example.com", id: 0),
-       boat: Boat("hog", 22, "location"),);
+    /* WashPage(
+      user: User(
+          name: "Corey",
+          phone: "5555559898",
+          email: "corey@example.com",
+          id: 0,
+          boat: Boat("hog", 22, "location")),
+    );*/
 
-   //Auth();
-   //ServicesHome();
+    //Auth();
+   //
    // CreateBoat();
   }
 }

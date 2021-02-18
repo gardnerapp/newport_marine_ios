@@ -1,13 +1,11 @@
 import 'package:dilibro_boat/app_bar_styling.dart';
 import 'package:dilibro_boat/forms/raised_icon_style.dart';
 import 'package:dilibro_boat/models/user.dart';
+import 'package:dilibro_boat/services/full_detail/full_detail.dart';
+import 'package:dilibro_boat/services/igl/igl.dart';
 import 'package:dilibro_boat/services/service_tile.dart';
+import 'package:dilibro_boat/services/wash/wash_page.dart';
 import 'package:flutter/material.dart';
-
-//Wash
-//Full Detail
-//Ceramics
-//DockSide
 
 
 class ServicesHome extends StatelessWidget {
@@ -30,17 +28,23 @@ class ServicesHome extends StatelessWidget {
           Image(image: AssetImage("lib/assets/img/full_logo.png")),
           // wash
           ServicesTile(
-            asset: "lib/assets/img/wash.jpg",
-            title: "Daily & Weekly Washes",
-            subTitle: "Discount Rates for Weekly & Biweekly plans",
-            icon: Icons.update,
-          ),
+              asset: "lib/assets/img/wash.jpg",
+              title: "Daily & Weekly Washes",
+              subTitle: "Discount Rates for Weekly & Biweekly plans",
+              icon: Icons.update,
+              onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => WashPage(
+                            user: user,
+                          )))),
           //Full Detail
           ServicesTile(
             asset: "lib/assets/img/full_detail.jpg",
             title: "Full Detailing",
             subTitle: "Everything You Need & More !",
             icon: Icons.wb_sunny,
+            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => FullDetail())),
           ),
           //ceramics
           ServicesTile(
@@ -48,6 +52,7 @@ class ServicesHome extends StatelessWidget {
             title: "IGL Ceramics Application",
             subTitle: "Oxidation Removal + Compounding & Polishing ",
             icon: Icons.colorize,
+            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => IGLHome())),
           ),
           //dockSide
           ServicesTile(
@@ -55,6 +60,7 @@ class ServicesHome extends StatelessWidget {
             title: "Dock Side",
             subTitle: "Arrival/Departure Services & Supply Restock",
             icon: Icons.thumb_up,
+            onTap: (){},
           ),
         ],
       )),
