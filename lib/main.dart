@@ -12,6 +12,8 @@ import 'package:dilibro_boat/services/wash/wash_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
+import 'models/user.dart';
+
 
 
 void main() {
@@ -46,7 +48,9 @@ class Home extends StatelessWidget {
     //  FullDetail();
 
     //ThankYou();
-     WashPage(boat: Boat("hog", 22, "location"),);
+     WashPage(
+       user: User(name: "Corey", phone: "5555559898", email: "corey@example.com", id: 0),
+       boat: Boat("hog", 22, "location"),);
 
    //Auth();
    //ServicesHome();
