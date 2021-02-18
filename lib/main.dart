@@ -6,7 +6,8 @@ import 'package:dilibro_boat/models/boat.dart';
 import 'package:dilibro_boat/services/full_detail/full_detail.dart';
 import 'package:dilibro_boat/services/igl/igl.dart';
 import 'package:dilibro_boat/services/services_home.dart';
-import 'package:dilibro_boat/services/thank_you.dart';
+import 'package:dilibro_boat/services/wash/wash_confirmation.dart';
+
 
 import 'package:dilibro_boat/services/wash/wash_page.dart';
 import 'package:flutter/material.dart';
@@ -44,7 +45,9 @@ class MyApp extends StatelessWidget {
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return //IGLHome();
+    return WashConfirmation();
+
+      //IGLHome();
     //  FullDetail();
 
     //ThankYou();
