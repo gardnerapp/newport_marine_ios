@@ -37,7 +37,6 @@ class _BookAppointmentState extends State<BookAppointment> {
     );
   }
 
-  //TODO Pressing OK Is Not Working
   _selectDate(BuildContext context) async {
     final DateTime picked = await showDatePicker(
         context: context,

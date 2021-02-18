@@ -24,7 +24,7 @@ class ServicesTile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Card(
-        elevation: 20.0,
+        elevation: 8.0,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
         shadowColor: Colors.blueGrey,
         child: InkWell(

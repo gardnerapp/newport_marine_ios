@@ -1,11 +1,9 @@
-import 'package:dilibro_boat/app_bar_styling.dart';
 import 'package:dilibro_boat/forms/form_styles.dart';
 import 'package:dilibro_boat/forms/raised_icon_style.dart';
-import 'package:dilibro_boat/models/boat.dart';
 import 'package:dilibro_boat/models/user.dart';
-import 'package:dilibro_boat/services/additional_instructions.dart';
 import 'package:dilibro_boat/services/appointments/book_appointment.dart';
 import 'package:dilibro_boat/services/services_reciept.dart';
+import 'package:dilibro_boat/services/wash/wash_confirmation.dart';
 import 'package:dilibro_boat/services/wash/wash_switch_tile.dart';
 import 'package:dilibro_boat/services/wash/wash_text_styles.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +25,7 @@ class _WashPageState extends State<WashPage> {
   TimeOfDay selectedTime = TimeOfDay(hour: 07, minute: 00);
   double cost = 16.0 * 20.0;//CostPer foot * boat length
   String additionalInstructions;
-  Map<String,double> services = {};
+  Map<String, double> services = {};
 
   @override
   initState() {
@@ -144,10 +142,10 @@ class _WashPageState extends State<WashPage> {
                 double num = 16.0;
                 if(value){
                   cost +=num;
-                  services['Cabin Maid ** Calculated Upon Completion **'] = num;
+                  services['Cabin Maid'] = num;
                 }else{
-                  cost = cost -num;
-                  services.remove('Cabin Maid ** Calculated Upon Completion **');
+                  cost = cost - num;
+                  services.remove('Cabin Maid');
                 }
               }),
             ),SizedBox(height: 10),
@@ -158,7 +156,6 @@ class _WashPageState extends State<WashPage> {
                 if (value) {
                   setState(() {
                     services['Compartment Cleaning'] = 0.0;
-                    print(services);
                   });
                 }
               },
@@ -168,6 +165,14 @@ class _WashPageState extends State<WashPage> {
             ),
             ServicesReceipt(date: selectedDate, time: selectedTime, cost: cost),
             SizedBox(height: 25),
+            TextFormField(
+              decoration: textInputDecoration("Anything Else ?"),
+              onChanged: (val){
+                setState(() {
+                  additionalInstructions = val;
+                });
+              },
+            ),
             SizedBox(height: 10.0),
             customRaisedIconButton(
                 Text(
@@ -175,7 +180,17 @@ class _WashPageState extends State<WashPage> {
                   style: raisedIconTextStyle(),
                 ),
                 iconDecoration(Icons.directions_boat),
-                () {})
+                () {
+                  Navigator.push(context, MaterialPageRoute(
+                      builder: (context) => WashConfirmation(
+                        user: this.widget.user,
+                        date: this.selectedDate,
+                        time: this.selectedTime,
+                        cost: this.cost,
+                        services: this.services,
+                        additionalInstructions: this.additionalInstructions,
+                      )));
+                })
           ],
         ));
   }

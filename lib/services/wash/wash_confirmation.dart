@@ -8,10 +8,20 @@ class WashConfirmation extends StatelessWidget {
   final User user;
   final DateTime date;
   final TimeOfDay time;
+  final double cost;
+  final Map<String, double> services;
+  final String additionalInstructions;
 
-  final Map<String, double> options;
+  const WashConfirmation(
+      {Key key,
+      this.user,
+      this.date,
+      this.time,
+      this.services,
+      this.additionalInstructions,
+      this.cost})
+      : super(key: key);
 
-  const WashConfirmation({Key key, this.user, this.date, this.time, this.options}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,12 +39,10 @@ class WashConfirmation extends StatelessWidget {
         child: Card(
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
-          elevation: 16.0,
+          elevation: 8.0,
           shadowColor: Colors.blueGrey,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.center,
+          child: ListView(
+            shrinkWrap: true,
             children: <Widget>[
               SizedBox(
                 height: 15,
@@ -52,12 +60,19 @@ class WashConfirmation extends StatelessWidget {
                 height: 10,
               ),
               instructionText("Appointment Summary\n"),
-              Column(
-                children: getOrderSummary(options),
+              Container(
+                child: Wrap(
+                children: getOrderSummary(services),
+              ),),
+              Divider(
+                height: 20,
+                thickness: 2.50,
+                color: Colors.blueGrey,
               ),
+              ConfirmationRow(message: "Total: ", price: cost, ),
               SizedBox(
                 height: 15.0,
-              )
+              ),
             ],
           ),
         ),

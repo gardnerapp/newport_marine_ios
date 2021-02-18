@@ -17,8 +17,17 @@ class ServicesHome extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 16.0,
-        title: Text("Our Services", style: appBarTitle(),),
-        leading: iconDecoration(Icons.directions_boat),
+        title: Text(
+          "Our Services",
+          style: appBarTitle(),
+        ),
+        actions: <Widget>[
+          IconButton(
+              icon: Icon(Icons.calendar_today),
+              onPressed: () {
+                // route to Appointments Index
+              }),
+        ],
       ),
       body: Container(
           child: ListView(
