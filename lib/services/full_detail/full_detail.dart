@@ -21,16 +21,13 @@ class _FullDetailState extends State<FullDetail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar(
-          "Full Detail",
-          Icons.arrow_back,
-          () {
-            Navigator.pop(context);
-          },
-          Icons.calendar_today,
-          () {
-            //Push to List of Appointments
-          }),
+      appBar: AppBar(
+        title: Text("Full Detail"),
+        elevation: 16.0,
+        leading: IconButton(icon: Icon(Icons.arrow_back), onPressed: (){
+          Navigator.pop(context);
+        }),
+      ),
       body: ListView(
         padding: const EdgeInsets.all(20.0),
         children: <Widget>[

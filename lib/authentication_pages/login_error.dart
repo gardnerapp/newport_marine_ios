@@ -14,10 +14,11 @@ class LoginError extends StatelessWidget {
           }),
         ),
         body: Container(
+          padding: EdgeInsets.all(20.0),
           child: Center(
               child: Text(
             "Invalid Authentication Contact Customer Serivce for help:\n\n401-***-****",
-            style: TextStyle(color: Colors.red, fontSize: 30.0),
+            style: TextStyle(color: Colors.red, fontSize: 30.0),textAlign: TextAlign.center,
           )),
         ));
   }

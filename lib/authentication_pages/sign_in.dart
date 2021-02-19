@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:dilibro_boat/forms/create_boat.dart';
 import 'package:dilibro_boat/api/authentication_request.dart';
 import 'package:dilibro_boat/authentication_pages/login_error.dart';
 import 'package:dilibro_boat/forms/form_styles.dart';

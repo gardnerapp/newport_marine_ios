@@ -1,4 +1,5 @@
 import 'package:dilibro_boat/app_bar_styling.dart';
+import 'package:dilibro_boat/calender/route_to_calender.dart';
 import 'package:dilibro_boat/forms/raised_icon_style.dart';
 import 'package:dilibro_boat/models/user.dart';
 import 'package:dilibro_boat/services/full_detail/full_detail.dart';
@@ -19,14 +20,9 @@ class ServicesHome extends StatelessWidget {
         elevation: 16.0,
         title: Text(
           "Our Services",
-          style: appBarTitle(),
         ),
         actions: <Widget>[
-          IconButton(
-              icon: Icon(Icons.calendar_today),
-              onPressed: () {
-                // route to Appointments Index
-              }),
+           RouteCalender()
         ],
       ),
       body: Container(

@@ -45,7 +45,9 @@ class MyApp extends StatelessWidget {
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return //WashConfirmation();
+    return Auth();
+
+      //WashConfirmation();
      ServicesHome(
       user: User(
           name: "Corey",
@@ -67,8 +69,6 @@ class Home extends StatelessWidget {
           boat: Boat("hog", 22, "location")),
     );*/
 
-    //Auth();
-   //
    // CreateBoat();
   }
 }

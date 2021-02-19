@@ -19,7 +19,6 @@ class _AuthState extends State<Auth> {
         appBar: AppBar(
             title: Text(
               "Newport Marine",
-              style: appBarTitle(),
             ),
             elevation: 16.0,
             leading: IconButton(
