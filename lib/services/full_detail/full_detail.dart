@@ -1,23 +1,44 @@
+import 'package:dilibro_boat/forms/form_styles.dart';
 import 'package:dilibro_boat/forms/raised_icon_style.dart';
-import 'package:dilibro_boat/services/additional_instructions.dart';
+import 'package:dilibro_boat/models/user.dart';
 import 'package:dilibro_boat/services/appointments/book_appointment.dart';
+import 'package:dilibro_boat/services/full_detail/full_detail_confirmation.dart';
 import 'package:dilibro_boat/services/wash/wash_switch_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:dilibro_boat/services/wash/wash_text_styles.dart';
-import '../../app_bar_styling.dart';
 import '../services_reciept.dart';
 
+//Todo get correct options and pricings
 class FullDetail extends StatefulWidget {
+  final User user;
+
+  const FullDetail({Key key, this.user}) : super(key: key);
   @override
   _FullDetailState createState() => _FullDetailState();
 }
 
 class _FullDetailState extends State<FullDetail> {
-  double cost = costPerFoot * 12.0;
-  static double costPerFoot = 16.0;
+  double cost;
+  double costPerFoot;
   var selectedDate = DateTime.now();
   var selectedTime = TimeOfDay.now();
-  String instructions;
+  String additionalInstructions;
+  Map<String,double> services = {};
+
+  @override
+  initState() {
+    var length = widget.user.boat.length;
+    if( length < 30.0){
+      costPerFoot = 28.0;
+    }else if(length > 30.0 && length < 40){
+      costPerFoot = 30.0;
+    }else{
+      costPerFoot = 37.0;
+    }
+    cost = length * costPerFoot;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,9 +55,7 @@ class _FullDetailState extends State<FullDetail> {
           SizedBox(height: 10),
           instructionText("Compound Wax & Polish\n"),
           instructionText("One Season of Protection\n"),
-          instructionText("Non-skid Cleaning\n"),
           instructionText("Stainless Steel Polishing\n"),
-          instructionText("Window Polishing / RainX\n"),
           instructionText("Eisen Glass Cleaning\n"),
           instructionText("Oxidation Removal\n"),
           Divider(height: 20.0, thickness: 2.5, color: Colors.blueGrey[600]),
@@ -60,16 +79,68 @@ class _FullDetailState extends State<FullDetail> {
           SizedBox(height: 25),
           Divider(height: 20.0, thickness: 2.5, color: Colors.blueGrey[600]),
           SizedBox(height: 20),
-          ServicesReceipt(date: selectedDate, time: selectedTime, cost: cost),
+          instructionText("Select Your Options:"),
           SizedBox(height: 20),
+          WashSwitchTile(
+            option: "Dock Wash",
+            optionCost: 5.0,
+            handleChange: (bool value) => setState(() {
+              double num = this.widget.user.boat.length * 5.0;
+              if (value) {
+                cost += num;
+                //** todo fix **
+                services["Stainless Steel "] = num;
+              } else {
+                cost = cost - num;
+                services.remove("Stainless Steel");
+              }
+            }),
+          ),
+          SizedBox(height: 20),
+          WashSwitchTile(
+            option: "Deck Hand Clean",
+            optionCost: 5.0,
+            handleChange: (bool value) => setState(() {
+              double num = this.widget.user.boat.length * 5.0;
+              if (value) {
+                cost += num;
+                services["Stainless Steel"] = num;
+              } else {
+                cost = cost - num;
+                //services.remove("Stainless Steel");
+              }
+            }),
+          ),
+          SizedBox(height: 20),
+          Divider(height: 20.0, thickness: 2.5, color: Colors.blueGrey[600]),
+          SizedBox(height: 20),
+          ServicesReceipt(date: selectedDate, time: selectedTime, cost: cost),
           SizedBox(height: 25),
+          TextFormField(
+            decoration: textInputDecoration("Anything Else ?"),
+            onChanged: (val){
+              setState(() {
+                additionalInstructions = val;
+              });
+            },
+          ),
+          SizedBox(height: 25,),
           customRaisedIconButton(
               Text(
                 "Continue",
                 style: raisedIconTextStyle(),
               ),
               iconDecoration(Icons.directions_boat),
-                  () {})
+                  () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => DetailConfirmation(
+                  user: widget.user,
+                  date: selectedDate,
+                  time: selectedTime,
+                  cost: cost,
+                  services: services,
+                  additionalInstructions: additionalInstructions,
+                )));
+                  })
         ],
       ),
     );

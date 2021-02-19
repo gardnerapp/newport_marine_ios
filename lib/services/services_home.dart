@@ -49,7 +49,9 @@ class ServicesHome extends StatelessWidget {
             title: "Full Detailing",
             subTitle: "Everything You Need & More !",
             icon: Icons.wb_sunny,
-            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => FullDetail())),
+            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => FullDetail(
+              user: user,
+            ))),
           ),
           //ceramics
           ServicesTile(

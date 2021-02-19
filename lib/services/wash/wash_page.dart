@@ -23,13 +23,14 @@ class WashPage extends StatefulWidget {
 class _WashPageState extends State<WashPage> {
   DateTime selectedDate = DateTime.now();
   TimeOfDay selectedTime = TimeOfDay(hour: 07, minute: 00);
-  double cost = 16.0 * 20.0;//CostPer foot * boat length
+  double cost;//CostPer foot * boat length
   String additionalInstructions;
   Map<String, double> services = {};
 
   @override
   initState() {
-    cost = this.widget.user.boat.length * 16.0; //cost per wash foot
+    cost = this.widget.user.boat.length * 16.0;//cost per wash foot
+    super.initState();
   }
 
   @override
@@ -173,7 +174,7 @@ class _WashPageState extends State<WashPage> {
                 });
               },
             ),
-            SizedBox(height: 10.0),
+            SizedBox(height: 25.0),
             customRaisedIconButton(
                 Text(
                   "Continue",

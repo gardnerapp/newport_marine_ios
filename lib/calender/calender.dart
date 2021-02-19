@@ -1,4 +1,5 @@
 import 'package:dilibro_boat/calender/has_appointments.dart';
+import 'package:dilibro_boat/calender/no_appointments.dart';
 import 'package:flutter/material.dart';
 
 class Calender extends StatelessWidget {
@@ -9,11 +10,14 @@ class Calender extends StatelessWidget {
       appBar: AppBar(
         title: Text("My Appointments"),
         elevation: 16.0,
-        leading: IconButton(icon: Icon(Icons.arrow_back), onPressed: (){
-          Navigator.pop(context);
-        }),
-      ),
-      body: HasAppointments(),
-    );
+          leading: IconButton(
+              icon: Icon(Icons.arrow_back),
+              onPressed: () {
+                Navigator.pop(context);
+              }),
+        ),
+        body: NoAppointments()
+        //HasAppointments(),
+        );
   }
 }
