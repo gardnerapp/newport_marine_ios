@@ -2,6 +2,7 @@ import 'package:dilibro_boat/app_bar_styling.dart';
 import 'package:dilibro_boat/calender/route_to_calender.dart';
 import 'package:dilibro_boat/forms/raised_icon_style.dart';
 import 'package:dilibro_boat/models/user.dart';
+import 'package:dilibro_boat/services/dockside/dockside.dart';
 import 'package:dilibro_boat/services/full_detail/full_detail.dart';
 import 'package:dilibro_boat/services/igl/igl.dart';
 import 'package:dilibro_boat/services/service_tile.dart';
@@ -59,7 +60,9 @@ class ServicesHome extends StatelessWidget {
             title: "IGL Ceramics Application",
             subTitle: "Oxidation Removal + Compounding & Polishing ",
             icon: Icons.colorize,
-            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => IGLHome())),
+            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => IGLHome(
+              user: user,
+            ))),
           ),
           //dockSide
           ServicesTile(
@@ -67,7 +70,9 @@ class ServicesHome extends StatelessWidget {
             title: "Dock Side",
             subTitle: "Arrival/Departure Services & Supply Restock",
             icon: Icons.thumb_up,
-            onTap: (){},
+            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => DockSide(
+              user: user,
+            ))),
           ),
         ],
       )),

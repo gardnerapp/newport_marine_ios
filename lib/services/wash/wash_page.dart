@@ -38,9 +38,6 @@ class _WashPageState extends State<WashPage> {
     return Scaffold(
         appBar: AppBar(
               title: Text("Wash"),
-          leading: new IconButton(icon: Icon(Icons.arrow_back), onPressed: (){
-            Navigator.pop(context);
-          }),
         ),
         body: ListView(
           padding: const EdgeInsets.all(20.0),

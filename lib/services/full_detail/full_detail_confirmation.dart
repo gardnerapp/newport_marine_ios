@@ -34,11 +34,6 @@ class _DetailConfirmationState extends State<DetailConfirmation> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Your Appointment"),
-        leading: IconButton(
-            icon: Icon(Icons.arrow_back),
-            onPressed: () {
-              Navigator.pop(context);
-            }),
         actions: <Widget>[
           IconButton(
               icon: Icon(Icons.directions_boat),
@@ -63,7 +58,7 @@ class _DetailConfirmationState extends State<DetailConfirmation> {
                 ),
                 instructionText("Thank You ${widget.user.name}!\n"),
                 instructionText(
-                    "The ${widget.user.boat.name} will be fully detailed on ${widget.date.month}/${widget.date.day} @ ${widget.time.hour}:${widget.time.minute}\n"),
+                    "The ${widget.user.boat.name} will be fully detailed on ${widget.date.month}/${widget.date.day} @ ${widget.time.hour}:0${widget.time.minute}\n"),
                 instructionText(
                     "Confirm and book your appointment by tapping the boat in the top right corner\n"),
                 Divider(

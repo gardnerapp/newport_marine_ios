@@ -45,9 +45,6 @@ class _FullDetailState extends State<FullDetail> {
       appBar: AppBar(
         title: Text("Full Detail"),
         elevation: 16.0,
-        leading: IconButton(icon: Icon(Icons.arrow_back), onPressed: (){
-          Navigator.pop(context);
-        }),
       ),
       body: ListView(
         padding: const EdgeInsets.all(20.0),

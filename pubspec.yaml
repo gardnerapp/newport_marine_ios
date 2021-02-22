@@ -59,6 +59,11 @@ flutter:
     - lib/assets/img/dock_side.jpeg
     - lib/assets/img/full_detail.jpg
     - lib/assets/img/wash.jpg
+    - lib/assets/img/igl/eco-fabric.jpg
+    - lib/assets/img/igl/eco-leather.jpg
+    - lib/assets/img/igl/eco-marine.jpg
+    - lib/assets/img/igl/eco-window.jpg
+    - lib/assets/img/igl/eco-wood.jpg
   #   - lib/assets/img/
 
   # An image asset can refer to one or more resolution-specific "variants", see
