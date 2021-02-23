@@ -153,16 +153,12 @@ class _SignUpState extends State<SignUp> {
                         } on Exception catch (e) {
                           PushError();
                         }
-                        
-                        //Detect Json Errors and status code errors
-                        //And then route properly
-                          
                       }
                     },
                   ))
             ],
           ),
-        ) );
+        ));
   }
 
   void PushError(){

@@ -19,6 +19,9 @@ class ServicesHome extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 16.0,
+        leading: IconButton(icon: Icon(Icons.directions_boat), onPressed: (){
+          //todo route home
+        }),
         title: Text(
           "Our Services",
         ),

@@ -21,4 +21,12 @@ class User{
     this.boat = boat;
   }
 
+  User.fromLogin(Map<String,dynamic> map){
+    this.id = map['id'];
+    this.name = map['name'];
+    this.email = map['email'];
+    this.phone = map['phone'];
+    this.boat = Boat.fromMap(map['boat']);
+  }
+
 }

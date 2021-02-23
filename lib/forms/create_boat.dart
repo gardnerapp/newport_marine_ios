@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dilibro_boat/api/authentication_request.dart';
 import 'package:dilibro_boat/app_bar_styling.dart';
 import 'package:dilibro_boat/forms/form_styles.dart';
@@ -7,7 +9,7 @@ import 'package:dilibro_boat/services/services_home.dart';
 import 'package:flutter/material.dart';
 import '../models/boat.dart';
 import 'create_boat_error.dart';
-//TODO IUtalicize form input
+
 
 // A form for creating user Boat
 class CreateBoat extends StatefulWidget {
@@ -102,13 +104,13 @@ class _CreateBoatState extends State<CreateBoat> {
                   () async {
                     if (_key.currentState.validate()) {
                       var req = await auth.createBoat(this.widget.user.id, name, length, location );
-                      print(req.body);
-                      if (req.statusCode == 200) {
-                       //TODO Set Boat to User  Before Pushing
+                      if (req.statusCode == 202) {
+                        Boat boat = Boat.fromMap(jsonDecode(req.body));
+                        widget.user.boat = boat;
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => ServicesHome()));
+                                    builder: (context) => ServicesHome(user: widget.user,)));
                           } else {
                             Navigator.push(
                                 context,

@@ -64,19 +64,18 @@ class _SignInState extends State<SignIn> {
                           try {
                             var req = await auth.login(phone, password);
                             if (req.statusCode == 202) {
-                              User user = User.fromMap(jsonDecode(req.body));
+                              User user = User.fromLogin(jsonDecode(req.body));
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
                                           ServicesHome(user: user)));
                             } else {
-                              print("Non Exception Executed ");
+
                               PushError();
                             }
                           } on Exception catch (e) {
                             print(e.toString());
-                            print("Exeption Executed in Login");
                             PushError();
                           }
                         }
