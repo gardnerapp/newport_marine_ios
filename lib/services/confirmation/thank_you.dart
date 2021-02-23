@@ -20,7 +20,7 @@ class ThankYou extends StatelessWidget {
         ),
         instructionText("Thank You ${user.name}!\n"),
         instructionText(
-            "The ${user.boat.name} will be $serviceName on ${date.month}/${date.day} @ ${time.hour}:0${time.minute}\n"),
+            "The ${user.boat.name} will be $serviceName on ${date.month}/${date.day} @ ${time.hour}:${time.minute}\n"),
         instructionText(
             "Confirm and book your appointment by tapping the boat in the top right corner\n"),
       ],
