@@ -13,10 +13,10 @@ class ThankYou extends StatelessWidget {
   const ThankYou({Key key, this.user, this.date, this.time, this.serviceName}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Wrap(
+    return Column(
       children: <Widget>[
         SizedBox(
-          height: 15,
+          height: 20,
         ),
         instructionText("Thank You ${user.name}!\n"),
         instructionText(

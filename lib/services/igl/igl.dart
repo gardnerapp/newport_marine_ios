@@ -2,6 +2,7 @@ import 'package:dilibro_boat/forms/form_styles.dart';
 import 'package:dilibro_boat/forms/raised_icon_style.dart';
 import 'package:dilibro_boat/models/user.dart';
 import 'package:dilibro_boat/services/appointments/book_appointment.dart';
+import 'package:dilibro_boat/services/confirmation/conirmation.dart';
 import 'package:dilibro_boat/services/igl/product_page_view.dart';
 import 'package:dilibro_boat/services/wash/wash_text_styles.dart';
 import 'package:flutter/material.dart';
@@ -94,7 +95,17 @@ class _IGLHomeState extends State<IGLHome> {
                 style: raisedIconTextStyle(),
               ),
               iconDecoration(Icons.directions_boat),
-                  () {})
+                  () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => Confirmation(
+                      user: widget.user,
+                      date: selectedDate,
+                      time: selectedTime,
+                      cost: cost,
+                      serviceName: "IGL Application",
+                      services: services,
+                      additionalInstructions: additionalInstructions,
+                    )));
+                  })
         ],
       ),
     );

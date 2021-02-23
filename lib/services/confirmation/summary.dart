@@ -9,7 +9,7 @@ class Summary extends StatelessWidget {
   const Summary({Key key, this.services, this.serviceName}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Wrap(
+    return Column(
       children: <Widget>[
         Divider(
           height: 20,

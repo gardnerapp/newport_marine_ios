@@ -1,3 +1,5 @@
+import 'package:dilibro_boat/services/wash/wash_text_styles.dart';
+
 import '../confirmation/confirmation_appbar.dart';
 import 'package:dilibro_boat/models/user.dart';
 import 'package:dilibro_boat/services/confirmation/confirmation_appbar.dart';
@@ -37,7 +39,6 @@ class _WashConfirmationState extends State<WashConfirmation> {
   @override
   Widget build(BuildContext context) {
 
-
     return Scaffold(
         appBar: confirmationAppBar(context),
         body: ConfirmationCard(
@@ -60,7 +61,9 @@ class _WashConfirmationState extends State<WashConfirmation> {
             ),
             Column(
               mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
+                instructionText("Weekly or Daily Wash?"),
                 CheckboxListTile(
                     checkColor: Colors.blueGrey,
                     activeColor: Colors.greenAccent,
