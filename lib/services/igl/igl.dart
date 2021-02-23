@@ -58,8 +58,10 @@ class _IGLHomeState extends State<IGLHome> {
           instructionText("Swipe to View Our IGL Products\n"),
           ProductPageView(
             user: widget.user,
-            callBack: (){
-              //Todo set State of services, cost w the tapped items
+            callBack: (String item, double price){
+              setState(() {
+                services[item] = price;
+              });
             },
           ),
           SizedBox(height: 15),

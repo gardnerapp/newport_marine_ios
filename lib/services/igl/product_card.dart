@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ProductCard extends StatelessWidget {
   final String asset;
   final String item;
-  final String price;
+  final double price;
   final Function callBack;
 
   const ProductCard({Key key, this.asset, this.item, this.price, this.callBack}) : super(key: key);
@@ -45,7 +45,7 @@ class ProductCard extends StatelessWidget {
                   textAlign: TextAlign.left,
                 ),
                 subtitle: Text(
-                  price,
+                  '\$$price',
                   style: TextStyle(fontSize: 16.0),
                   textAlign: TextAlign.left,
                 ),
