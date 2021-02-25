@@ -25,24 +25,26 @@ class AuthenticationRequest extends BaseAPI{
     return response;
   }
 
-  Future<http.Response> login(String phone, String password) async {
-    var body = jsonEncode({
-     'phone': phone, 'password': password
-    });
-
-    http.Response response = await http.post("http://localhost:3000/api/login", headers: headers, body: body);
-    return response;
-  }
 
   Future<http.Response> createBoat(
-      int userId, String boatName, double boatLength, String location) async {
+      int userId, String token, String boatName, double boatLength, String location) async {
     var body = jsonEncode({
       'id': userId,
+      'token': token,
       'boat': {'name': boatName, 'location': location, 'length': boatLength}
     });
 
     http.Response response = await http.post("http://localhost:3000/api/boats/", headers: headers, body: body);
 
+    return response;
+  }
+
+  Future<http.Response> login(String phone, String password) async {
+    var body = jsonEncode({'session': {
+      'phone': phone, 'password': password}
+    });
+
+    http.Response response = await http.post("http://localhost:3000/api/login", headers: headers, body: body);
     return response;
   }
 

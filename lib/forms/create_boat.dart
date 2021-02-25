@@ -103,7 +103,7 @@ class _CreateBoatState extends State<CreateBoat> {
                   iconDecoration(Icons.directions_boat),
                   () async {
                     if (_key.currentState.validate()) {
-                      var req = await auth.createBoat(this.widget.user.id, name, length, location );
+                      var req = await auth.createBoat(widget.user.id, widget.user.token ,name, length, location );
                       if (req.statusCode == 202) {
                         Boat boat = Boat.fromMap(jsonDecode(req.body));
                         widget.user.boat = boat;

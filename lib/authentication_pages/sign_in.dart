@@ -64,6 +64,7 @@ class _SignInState extends State<SignIn> {
                           try {
                             var req = await auth.login(phone, password);
                             if (req.statusCode == 202) {
+                              print(req.body);
                               User user = User.fromLogin(jsonDecode(req.body));
                               Navigator.push(
                                   context,

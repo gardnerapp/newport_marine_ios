@@ -6,8 +6,9 @@ class User{
   String email;
   String phone;
   Boat boat;
+  String token;
 
-  User({this.name, this.email, this.phone, this.id, this.boat});
+  User({this.name, this.email, this.phone, this.id, this.boat, this.token});
 
   //Receives JSON Decode of Response.body to create a User
   User.fromMap(Map<String,dynamic> map){
@@ -15,6 +16,7 @@ class User{
     this.name = map['name'];
     this.email = map['email'];
     this.phone = map['phone'];
+    this.token = map['token'];
   }
 
   User.addBoat(Boat boat){
@@ -26,6 +28,7 @@ class User{
     this.name = map['name'];
     this.email = map['email'];
     this.phone = map['phone'];
+    this.token = map['token'];
     this.boat = Boat.fromMap(map['boat']);
   }
 
