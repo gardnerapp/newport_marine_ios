@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:dilibro_boat/models/boat.dart';
 import 'package:http/http.dart' as http;
 import 'base_api.dart';
 

@@ -1,3 +1,4 @@
+import 'package:dilibro_boat/api/appointment_request.dart';
 import 'package:dilibro_boat/services/wash/wash_text_styles.dart';
 
 import '../confirmation/confirmation_appbar.dart';
@@ -38,9 +39,20 @@ class _WashConfirmationState extends State<WashConfirmation> {
 
   @override
   Widget build(BuildContext context) {
-
+    var time = "${widget.date.month}/${widget.date.day} ${widget.time.toString()}";
+    AppointmentRequest APIRequest = AppointmentRequest();
     return Scaffold(
-        appBar: confirmationAppBar(context),
+        appBar: confirmationAppBar(context, () async {
+          try{
+            var req = await APIRequest.createAppointment(
+                "Wash", time, widget.cost, widget.user.id, widget.services,
+                widget.user.token);
+            print(req.body);
+          } on Exception catch (e) {
+            print(e.toString());
+          }
+
+        }),
         body: ConfirmationCard(
           children: <Widget>[
             ThankYou(

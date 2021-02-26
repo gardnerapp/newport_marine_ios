@@ -1,14 +1,15 @@
+import 'package:dilibro_boat/api/appointment_request.dart';
 import 'package:flutter/material.dart';
-//TODO Make sure you put additional instructions in the API Post
-confirmationAppBar(BuildContext context){
+
+
+confirmationAppBar(BuildContext context, Function onPressed){
+  AppointmentRequest req = AppointmentRequest();
   return AppBar(
     title: Text("Your Appointment"),
     actions: <Widget>[
       IconButton(
           icon: Icon(Icons.directions_boat),
-          onPressed: () {
-            Navigator.pop(context);
-          }),
+          onPressed: onPressed),
     ],
   );
 }

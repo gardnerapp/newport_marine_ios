@@ -24,13 +24,14 @@ class Confirmation extends StatelessWidget {
       this.time,
       this.cost,
       this.services,
-      this.additionalInstructions, this.serviceName})
+      this.additionalInstructions,
+      this.serviceName})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: confirmationAppBar(context),
+        appBar: confirmationAppBar(context, () async {}),
         body: ConfirmationCard(
           children: <Widget>[
             ThankYou(
