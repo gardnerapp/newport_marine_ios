@@ -1,4 +1,5 @@
 import 'package:dilibro_boat/api/appointment_request.dart';
+import 'package:dilibro_boat/services/confirmation/all_set.dart';
 import 'package:dilibro_boat/services/wash/wash_text_styles.dart';
 
 import '../confirmation/confirmation_appbar.dart';
@@ -47,9 +48,22 @@ class _WashConfirmationState extends State<WashConfirmation> {
             var req = await appointmentRequest.createAppointment(
                 "Wash", time, widget.cost, widget.user.id, widget.additionalInstructions, widget.services,
                 widget.user.token);
-            print(req.body);
+            if(req.statusCode == 202){
+              Navigator.push(context, MaterialPageRoute(builder: (context) => AllSet(
+                message: "Thank You !",
+                user: widget.user,
+              )));
+            }else{
+              Navigator.push(context, MaterialPageRoute(builder: (context) => AllSet(
+                message: "Error !",
+                user: widget.user,
+              )));
+            }
           } on Exception catch (e) {
-            print(e.toString());
+            Navigator.push(context, MaterialPageRoute(builder: (context) => AllSet(
+              message: "Error !!",
+              user: widget.user,
+            )));
           }
 
         }),

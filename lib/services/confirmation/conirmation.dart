@@ -1,4 +1,6 @@
+import 'package:dilibro_boat/api/appointment_request.dart';
 import 'package:dilibro_boat/models/user.dart';
+import 'package:dilibro_boat/services/confirmation/all_set.dart';
 import 'package:dilibro_boat/services/confirmation/confirmation_appbar.dart';
 import 'package:dilibro_boat/services/confirmation/confirmation_card.dart';
 import 'package:dilibro_boat/services/confirmation/summary.dart';
@@ -30,14 +32,39 @@ class Confirmation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var time = "${date.month}/${date.day} ${this.time.toString()}";
+    AppointmentRequest appointmentRequest = AppointmentRequest();
     return Scaffold(
-        appBar: confirmationAppBar(context, () async {}),
+        appBar: confirmationAppBar(context, () async {
+          try{
+            var req = await appointmentRequest.createAppointment(
+                "Wash", time, cost, user.id, additionalInstructions, services,
+                user.token);
+            if(req.statusCode == 202){
+              Navigator.push(context, MaterialPageRoute(builder: (context) => AllSet(
+                message: "Thank You !",
+                user: user,
+              )));
+            }else{
+              Navigator.push(context, MaterialPageRoute(builder: (context) => AllSet(
+                message: "Error !",
+                user: user,
+              )));
+            }
+          } on Exception catch (e) {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => AllSet(
+              message: "Error !!",
+              user: user,
+            )));
+          }
+
+        }),
         body: ConfirmationCard(
           children: <Widget>[
             ThankYou(
               user: user,
               date: date,
-              time: time,
+              time: this.time,
               serviceName: serviceName,
             ),
             Summary(
