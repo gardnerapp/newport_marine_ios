@@ -6,21 +6,27 @@ import 'package:http/http.dart' as http;
 //Setting Appointments & Getting a Users Appointments
 
 class AppointmentRequest extends BaseAPI {
-  Future<http.Response> createAppointment(String title, String time, double cost, int userId,
-      Map<String, double> services, String token) async {
+  Future<http.Response> createAppointment(
+      String title,
+      String time,
+      double total,
+      int userId,
+      String additionalInstructions,
+      Map<String, double> services,
+      String token) async {
     var body = jsonEncode({
       'appointment': {
         'time': time,
         'title': title,
-        'total': cost,
+        'total': total,
         'user_id': userId,
-        'services': services
-      },
-
+        'additional_instructions': additionalInstructions,
+        'services': jsonEncode(services)
+      }, //'services': services
     });
 
     http.Response response =
-        await http.post("http://localhost:3000/api/appointment", headers: headers, body: body);
+        await http.post(createAppointmentPath, headers: headers, body: body);
     return response;
   }
 }

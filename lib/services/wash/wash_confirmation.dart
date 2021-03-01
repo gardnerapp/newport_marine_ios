@@ -40,12 +40,12 @@ class _WashConfirmationState extends State<WashConfirmation> {
   @override
   Widget build(BuildContext context) {
     var time = "${widget.date.month}/${widget.date.day} ${widget.time.toString()}";
-    AppointmentRequest APIRequest = AppointmentRequest();
+    AppointmentRequest appointmentRequest = AppointmentRequest();
     return Scaffold(
         appBar: confirmationAppBar(context, () async {
           try{
-            var req = await APIRequest.createAppointment(
-                "Wash", time, widget.cost, widget.user.id, widget.services,
+            var req = await appointmentRequest.createAppointment(
+                "Wash", time, widget.cost, widget.user.id, widget.additionalInstructions, widget.services,
                 widget.user.token);
             print(req.body);
           } on Exception catch (e) {
@@ -59,7 +59,7 @@ class _WashConfirmationState extends State<WashConfirmation> {
               user: widget.user,
               date: widget.date,
               time: widget.time,
-              serviceName: "Wash",
+              serviceName: "Washed",
             ),
             Summary(
               serviceName: "Wash",
