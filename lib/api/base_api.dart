@@ -1,7 +1,6 @@
 import 'package:http/http.dart' as http;
 
-//Mother Class for all API Request
-//store urls
+//Mother Class for all API Request URL's
 class BaseAPI{
 //TODO use https
   static var baseUrl = "http://localhost:3000/api/";

@@ -22,7 +22,8 @@ class AppointmentRequest extends BaseAPI {
         'user_id': userId,
         'additional_instructions': additionalInstructions,
         'services': jsonEncode(services)
-      }, //'services': services
+      },
+      'token': token
     });
 
     http.Response response =
