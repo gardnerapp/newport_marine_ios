@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-
+//Todo get correct contact number
 class LoginError extends StatelessWidget {
 
   @override
@@ -17,7 +17,7 @@ class LoginError extends StatelessWidget {
           padding: EdgeInsets.all(20.0),
           child: Center(
               child: Text(
-            "Invalid Authentication Contact Customer Serivce for help:\n\n401-***-****",
+            "Please Contact Customer Serivce for help:\n\n401-***-****",
             style: TextStyle(color: Colors.red, fontSize: 30.0),textAlign: TextAlign.center,
           )),
         ));

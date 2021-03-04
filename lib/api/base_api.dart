@@ -8,6 +8,7 @@ class BaseAPI{
   var createBoatPath = baseUrl + "boats";
   var loginPath = baseUrl + "login";
   var createAppointmentPath = baseUrl + "appointment";
+  var resetPasswordPath = baseUrl + "password_resets"; // POST with email of user
 
   Map<String, String> headers = {
     "Content-Type": "application/json; charset=UTF-8"

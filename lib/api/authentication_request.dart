@@ -46,4 +46,14 @@ class AuthenticationRequest extends BaseAPI{
         await http.post(loginPath, headers: headers, body: body);
     return response;
   }
+
+  Future<http.Response> resetPassword(String email) async {
+    var body = jsonEncode({
+
+    });
+
+    http.Response response = await http.post(resetPasswordPath, headers: headers, body: body);
+    return response;
+  }
+
 }
