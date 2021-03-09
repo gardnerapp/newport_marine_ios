@@ -49,11 +49,11 @@ class AuthenticationRequest extends BaseAPI{
 
   Future<http.Response> resetPassword(String email) async {
     var body = jsonEncode({
-
+      'password_reset': {'email': email}
     });
 
-    http.Response response = await http.post(resetPasswordPath, headers: headers, body: body);
+    http.Response response =
+        await http.post(resetPasswordPath, headers: headers, body: body);
     return response;
   }
-
 }

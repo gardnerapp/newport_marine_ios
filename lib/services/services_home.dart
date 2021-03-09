@@ -1,13 +1,15 @@
-import 'package:dilibro_boat/app_bar_styling.dart';
 import 'package:dilibro_boat/calender/route_to_calender.dart';
-import 'package:dilibro_boat/forms/raised_icon_style.dart';
 import 'package:dilibro_boat/models/user.dart';
 import 'package:dilibro_boat/services/dockside/dockside.dart';
 import 'package:dilibro_boat/services/full_detail/full_detail.dart';
 import 'package:dilibro_boat/services/igl/igl.dart';
 import 'package:dilibro_boat/services/service_tile.dart';
+import 'package:dilibro_boat/services/services_home_drawer.dart';
 import 'package:dilibro_boat/services/wash/wash_page.dart';
 import 'package:flutter/material.dart';
+
+
+//TODO Get Appointments for User
 
 
 class ServicesHome extends StatelessWidget {
@@ -18,11 +20,9 @@ class ServicesHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: HomeDrawer(),
       appBar: AppBar(
         elevation: 16.0,
-        leading: IconButton(icon: Icon(Icons.directions_boat), onPressed: (){
-          //todo route home
-        }),
         title: Text(
           "Our Services",
         ),
