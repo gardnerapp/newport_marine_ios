@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'package:dilibro_boat/api/appointment_request.dart';
 import 'package:dilibro_boat/authentication_pages/login_error.dart';
 import 'package:dilibro_boat/calender/calender.dart';
@@ -18,12 +19,13 @@ class RouteCalender extends StatelessWidget {
         onPressed: () async {
           var req = await appointmentRequest.getUserAppointments(userId, token);
           if(req.statusCode == 202){
-            //todo pass in json
             Navigator.push(
                 context,
                 MaterialPageRoute(
                     builder: (context) => Calender(
-                          child: HasAppointments(),
+                          child: HasAppointments(
+                            data: jsonDecode(req.body),
+                          ),
                         )));
           } else if (req.statusCode == 204) {
             Navigator.push(

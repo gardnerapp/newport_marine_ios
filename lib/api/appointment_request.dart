@@ -32,13 +32,13 @@ class AppointmentRequest extends BaseAPI {
 
   Future<http.Response> getUserAppointments(int userId,
       String token) async {
-     Uri uri = Uri.parse(userAppointmentsIndex + "/$userId}");
+     Uri uri = Uri.parse(userAppointmentsIndex + "$userId}");
 
      final newUri = uri.replace(queryParameters: {
        'token': token
      });
 
-    http.Response response = await http.get(uri);
+    http.Response response = await http.get(newUri);
 
     return response;
   }
