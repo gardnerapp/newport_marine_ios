@@ -6,8 +6,7 @@ import 'package:http/http.dart' as http;
 //Setting Appointments & Getting a Users Appointments
 
 class AppointmentRequest extends BaseAPI {
-  Future<http.Response> createAppointment(
-      String title,
+  Future<http.Response> createAppointment(String title,
       String time,
       double total,
       int userId,
@@ -27,7 +26,22 @@ class AppointmentRequest extends BaseAPI {
     });
 
     http.Response response =
-        await http.post(createAppointmentPath, headers: headers, body: body);
+    await http.post(createAppointmentPath, headers: headers, body: body);
     return response;
   }
+
+  Future<http.Response> getUserAppointments(int userId,
+      String token) async {
+    //Todo how to send get w params
+    var body = jsonEncode({
+      'id': userId,
+      'token': token
+    });
+
+    http.Response response = await http.get(userAppointmentsIndex, headers: headers);
+
+    return response;
+  }
+
 }
+

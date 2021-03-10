@@ -3,6 +3,9 @@ import 'package:dilibro_boat/calender/no_appointments.dart';
 import 'package:flutter/material.dart';
 
 class Calender extends StatelessWidget {
+  final Widget child;
+
+  const Calender({Key key, this.child}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     //ternary if data //push to online today
@@ -16,8 +19,7 @@ class Calender extends StatelessWidget {
                 Navigator.pop(context);
               }),
         ),
-        body: NoAppointments()
-        //HasAppointments(),
+        body: child
         );
   }
 }
