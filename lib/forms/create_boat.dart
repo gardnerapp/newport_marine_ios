@@ -59,8 +59,8 @@ class _CreateBoatState extends State<CreateBoat> {
             Text("My vessel is $length ft.", style: formTitleStyle()),
             SliderTheme(
                   data: SliderTheme.of(context).copyWith(
-                    activeTrackColor: Colors.greenAccent[800],
-                    inactiveTrackColor: Colors.greenAccent[800],
+                    activeTrackColor: Colors.greenAccent,
+                    inactiveTrackColor: Colors.greenAccent,
                     trackHeight: 3.0,
                     thumbShape: RoundSliderThumbShape(enabledThumbRadius: 12.0),
                     overlayShape: RoundSliderOverlayShape(overlayRadius: 28.0),
@@ -71,7 +71,7 @@ class _CreateBoatState extends State<CreateBoat> {
                     max: 250,
                     divisions: 50,
                     label: "$length ft.",
-                    activeColor: Colors.greenAccent[800],
+                    activeColor: Colors.greenAccent,
                     onChanged: (val) {
                       setState(() {
                         length = val;

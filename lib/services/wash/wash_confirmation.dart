@@ -11,6 +11,8 @@ import 'package:dilibro_boat/services/confirmation/thank_you.dart';
 import 'package:dilibro_boat/services/confirmation/total.dart';
 import 'package:flutter/material.dart';
 
+//todo custmer service
+
 class WashConfirmation extends StatefulWidget {
   final User user;
   final DateTime date;
@@ -55,7 +57,7 @@ class _WashConfirmationState extends State<WashConfirmation> {
               )));
             }else{
               Navigator.push(context, MaterialPageRoute(builder: (context) => AllSet(
-                message: "Error !",
+                message: "Error !\n Please contact Customer Service",
                 user: widget.user,
               )));
             }
