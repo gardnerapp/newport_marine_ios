@@ -142,8 +142,6 @@ class _SignUpState extends State<SignUp> {
                       if (_key.currentState.validate()) {
                         try {
                           var req = await auth.createUser(name, email, phone, password, passwordConfirmation);
-                          print(req.body);
-                          print(req.statusCode);
                           if (req.statusCode == 202) {
                             User user = User.fromMap(jsonDecode(req.body));
                             Navigator.push(context,
@@ -153,6 +151,7 @@ class _SignUpState extends State<SignUp> {
                             PushError();
                           }
                         } on Exception catch (e) {
+                          print(e);
                           PushError();
                         }
                       }
