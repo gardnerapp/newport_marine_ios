@@ -25,7 +25,7 @@ class HomeDrawer extends StatelessWidget {
             ),
             SizedBox(height: 45),
             Text(
-              "If you need to change your appointment please contact customer service @ ***-***-***",
+              "If you need to change your appointment please contact customer service: tech_support@newportmarine.app ",
               style: TextStyle(
                 fontSize: 20.0,
               ),
