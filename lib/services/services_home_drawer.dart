@@ -24,16 +24,9 @@ class HomeDrawer extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 45),
-            Text(
-              "If you need to change your appointment please contact customer service: tech_support@newportmarine.app ",
-              style: TextStyle(
-                fontSize: 20.0,
-              ),
-              textAlign: TextAlign.center,
-            ),
             SizedBox(height: 45),
             Text(
-              "Any Bugs can be reported here:\n https://host/bugs.com",
+              "Any Bugs can be reported here:\n  https://newportmarine.app/help",
               style: TextStyle(
                 fontSize: 20.0,
               ),
