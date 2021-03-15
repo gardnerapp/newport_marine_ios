@@ -14,7 +14,7 @@ class AuthenticationRequest extends BaseAPI{
         "email": email,
         "phone": phone,
         "password": password,
-        "password_confirmation": passwordConfirmation
+        "password_confirmation": passwordConfirmation,
       }
     });
 
