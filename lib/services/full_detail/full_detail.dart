@@ -8,7 +8,6 @@ import 'package:flutter/material.dart';
 import 'package:dilibro_boat/services/wash/wash_text_styles.dart';
 import '../services_reciept.dart';
 
-//Todo get correct options and pricings
 class FullDetail extends StatefulWidget {
   final User user;
 
@@ -85,11 +84,10 @@ class _FullDetailState extends State<FullDetail> {
               double num = this.widget.user.boat.length * 5.0;
               if (value) {
                 cost += num;
-                //** todo fix **
-                services["Stainless Steel "] = num;
+                services["Dock Wash"] = num;
               } else {
                 cost = cost - num;
-                services.remove("Stainless Steel");
+                services.remove("Dock Wash");
               }
             }),
           ),
@@ -101,10 +99,10 @@ class _FullDetailState extends State<FullDetail> {
               double num = this.widget.user.boat.length * 5.0;
               if (value) {
                 cost += num;
-                services["Stainless Steel"] = num;
+                services["Deck Hand Clean"] = num;
               } else {
                 cost = cost - num;
-                //services.remove("Stainless Steel");
+               services.remove("Stainless Steel");
               }
             }),
           ),

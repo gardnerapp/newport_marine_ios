@@ -6,7 +6,8 @@ import 'package:dilibro_boat/services/confirmation/conirmation.dart';
 import 'package:dilibro_boat/services/wash/wash_text_styles.dart';
 import 'package:flutter/material.dart';
 
-//TODO Scrollable Widget for the number of needed hands
+//TODO Scrollable Widget for the number of needed hands  adds to services
+// tm walk through on ios
 
 class DockSide extends StatefulWidget {
   final User user;

@@ -9,8 +9,6 @@ import 'package:dilibro_boat/services/wash/wash_page.dart';
 import 'package:flutter/material.dart';
 
 
-//TODO Get Appointments for User
-
 
 class ServicesHome extends StatelessWidget {
   final User user;

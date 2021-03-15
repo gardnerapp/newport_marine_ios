@@ -14,7 +14,6 @@ class SignUp extends StatefulWidget {
   _SignUpState createState() => _SignUpState();
 }
 
-//TODO Strong password Sanitization
 
 class _SignUpState extends State<SignUp> {
   AuthenticationRequest auth = AuthenticationRequest();

@@ -2,7 +2,6 @@ import 'package:dilibro_boat/models/user.dart';
 import 'package:dilibro_boat/services/services_home.dart';
 import 'package:flutter/material.dart';
 
-// TODO route home ;)
 
 class AllSet extends StatelessWidget {
   final String message;
