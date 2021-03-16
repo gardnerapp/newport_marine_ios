@@ -10,8 +10,32 @@ class ProductPageView extends StatefulWidget {
   @override
   _ProductPageViewState createState() => _ProductPageViewState();
 }
-//Todo fix prices, dynamic rendering based on boat length
+// TODO get Correct prices from dillibro
 class _ProductPageViewState extends State<ProductPageView> {
+  double ecoFabric;
+  double ecoLeather;
+  double ecoMarine;
+  double ecoWindow;
+  double ecoWood;
+
+  // Boat Size and Price
+  @override
+  void initState() {
+    var length = widget.user.boat.length;
+    if(length < 35){
+      ecoFabric = 112.48;
+      ecoLeather = 99.95;
+      ecoMarine = 812.50;
+      ecoWindow = 91.19;
+      ecoWood = 144.94;
+    } else {
+      ecoFabric = 874.94;
+      ecoLeather = 99.95;
+      ecoMarine = 812.50;
+      ecoWood = 144.94;
+    }
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,31 +47,31 @@ class _ProductPageViewState extends State<ProductPageView> {
           ProductCard(
             asset: "lib/assets/img/igl/eco-fabric.jpg",
             item: "Eco Coat Fabric",
-            price: 112.44,
+            price: ecoFabric,
             callBack: (String item, double price) => widget.callBack(item, price),
           ),
           ProductCard(
             asset: "lib/assets/img/igl/eco-leather.jpg",
             item: "Eco Coat Leather",
-            price: 112.44,
+            price: ecoLeather,
             callBack: (String item, double price) => widget.callBack(item,price),
           ),
           ProductCard(
             asset: "lib/assets/img/igl/eco-marine.jpg",
             item: "Eco Coat Marine",
-            price: 112.44,
+            price: ecoMarine,
             callBack: (String item, double price) => widget.callBack(item,price),
           ),
           ProductCard(
             asset: "lib/assets/img/igl/eco-window.jpg",
             item: "Eco Coat Window",
-            price: 112.44,
+            price: ecoWindow,
             callBack: (String item, double price) => widget.callBack(item,price),
           ),
           ProductCard(
             asset: "lib/assets/img/igl/eco-wood.jpg",
             item: "Eco Coat Wood",
-            price: 112.44,
+            price: ecoWood,
             callBack: (String item, double price) => widget.callBack(item,price),
           ),
         ],

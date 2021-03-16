@@ -15,7 +15,7 @@ class ConfirmationRow extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            instructionText(message), instructionText("\$$price")
+            instructionText(message), message.startsWith('Deck Hands') ? instructionText("$price") : instructionText("\$$price")
           ],
         ),
     );

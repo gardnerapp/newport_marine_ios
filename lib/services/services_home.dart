@@ -84,9 +84,3 @@ class ServicesHome extends StatelessWidget {
     );
   }
 }
-
-/*
-*  Container(
-                  height: 100.0,
-                  child: Image(image: AssetImage("lib/assets/img/newport_marine_logo.jpg"))),
-*  */

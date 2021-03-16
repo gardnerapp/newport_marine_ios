@@ -6,7 +6,7 @@ class BaseAPI{
 // Production API https://newportmarine.app
 // dev http://localhost:3000/api/
 
-  static var baseUrl = "https://newportmarine.app/api/";
+  static var baseUrl = "http://localhost:3000/api/";
   var resetPasswordPath = "https://newportmarine.app/password_resets"; // POST with email of user
   var createUserPath = baseUrl + "users";
   var createBoatPath = baseUrl + "boats";

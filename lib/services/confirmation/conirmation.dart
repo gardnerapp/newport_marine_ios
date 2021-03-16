@@ -71,6 +71,7 @@ class Confirmation extends StatelessWidget {
               services: services,
               serviceName: serviceName,
             ),
+            cost == null ? Total(cost: 0.00) :
             Total(
               cost: cost,
             )

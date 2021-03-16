@@ -102,7 +102,7 @@ class _FullDetailState extends State<FullDetail> {
                 services["Deck Hand Clean"] = num;
               } else {
                 cost = cost - num;
-               services.remove("Stainless Steel");
+               services.remove("Deck Hand Clean");
               }
             }),
           ),

@@ -5,8 +5,8 @@ import 'package:dilibro_boat/services/appointments/book_appointment.dart';
 import 'package:dilibro_boat/services/confirmation/conirmation.dart';
 import 'package:dilibro_boat/services/wash/wash_text_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:numberpicker/numberpicker.dart';
 
-//TODO Scrollable Widget for the number of needed hands  adds to services
 // tm walk through on ios
 
 class DockSide extends StatefulWidget {
@@ -22,6 +22,7 @@ class _DockSideState extends State<DockSide> {
   TimeOfDay selectedTime = TimeOfDay.now();
   String restock;
   double cost;
+  int deckHands = 0;
   Map<String,double> services ={};
   @override
   Widget build(BuildContext context) {
@@ -37,9 +38,6 @@ class _DockSideState extends State<DockSide> {
             instructionText("Please Include How many hands you will need\n"),
             instructionText("And Your Time Of Arrival/Departure\n"),
 
-            //Number of Hands Needed
-            //Restcok
-
             Divider(height: 20.0, thickness: 2.5, color: Colors.blueGrey[600]),
             SizedBox(height:15),
             instructionText(
@@ -51,6 +49,18 @@ class _DockSideState extends State<DockSide> {
               handleTimeChange: (TimeOfDay time) => setState((){selectedTime = time;}),
             ),
             SizedBox(height: 25),
+            Divider(height: 20.0, thickness: 2.5, color: Colors.blueGrey[600]),
+            SizedBox(height:15),
+            instructionText(
+              "How Many Deck Hands?",
+            ),
+            SizedBox(height: 15),
+            NumberPicker.integer(
+                initialValue: deckHands,
+                minValue: 0,
+                maxValue: 10,
+                onChanged: (newValue) =>
+                    setState(() => deckHands = newValue)),
             TextFormField(
               decoration: textInputDecoration("Supplies Restock ? "),
               onChanged: (val){
@@ -67,6 +77,10 @@ class _DockSideState extends State<DockSide> {
                 ),
                 iconDecoration(Icons.directions_boat),
                     () {
+                 setState(() {
+                    services['Deck Hands'] = deckHands.toDouble();
+                  });
+
                   Navigator.push(context, MaterialPageRoute(builder: (context) => Confirmation(
                     user: widget.user,
                     date: selectedDate,
