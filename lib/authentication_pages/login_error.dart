@@ -16,7 +16,7 @@ class LoginError extends StatelessWidget {
           padding: EdgeInsets.all(20.0),
           child: Center(
               child: Text(
-            "Please Contact Customer Service for help:\n\n https://newportmarine.app/help",
+            "Please contact customer service for help\n https://newportmarine.app",
             style: TextStyle( fontSize: 30.0),textAlign: TextAlign.center,
           )),
         ));

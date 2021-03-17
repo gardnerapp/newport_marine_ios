@@ -56,6 +56,9 @@ class _ResetPasswordState extends State<ResetPassword> {
                               if (req.statusCode == 202) {
                                 Navigator.pop(context);
                               } else {
+                                print(req.request);
+                                print(req.statusCode);
+                                print(req.body);
                                 PushError();
                               }
                             } on Exception catch (e) {

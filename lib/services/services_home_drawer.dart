@@ -24,11 +24,17 @@ class HomeDrawer extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 45),
-            SizedBox(height: 45),
             Text(
-              "Any Bugs can be reported here:\n  https://newportmarine.app/help",
+              "Need help?\n ",
               style: TextStyle(
                 fontSize: 20.0,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            Text(
+              "https://newportmarine.app/help",
+              style: TextStyle(
+                fontSize: 18.0,
               ),
               textAlign: TextAlign.center,
             ),
