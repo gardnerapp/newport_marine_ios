@@ -23,9 +23,9 @@ class HomeDrawer extends StatelessWidget {
               ),
               textAlign: TextAlign.center,
             ),
-            SizedBox(height: 45),
+            SizedBox(height: 35),
             Text(
-              "Need help?\n ",
+              "Please report any issues to:\n ",
               style: TextStyle(
                 fontSize: 20.0,
               ),
@@ -38,7 +38,7 @@ class HomeDrawer extends StatelessWidget {
               ),
               textAlign: TextAlign.center,
             ),
-            SizedBox(height: 45.0),
+            SizedBox(height: 35.0),
             GestureDetector(
               child: Text("Logout", style: TextStyle(
                   fontSize: 18.0,

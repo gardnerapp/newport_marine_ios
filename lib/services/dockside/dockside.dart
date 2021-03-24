@@ -21,7 +21,7 @@ class _DockSideState extends State<DockSide> {
   DateTime selectedDate = DateTime.now();
   TimeOfDay selectedTime = TimeOfDay.now();
   String restock;
-  double cost;
+  double cost = 1;
   int deckHands = 0;
   Map<String,double> services ={};
   @override

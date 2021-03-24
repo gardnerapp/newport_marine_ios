@@ -35,8 +35,8 @@ class WashConfirmation extends StatefulWidget {
 }
 
 class _WashConfirmationState extends State<WashConfirmation> {
-  bool weekly = false;
-  bool daily = false;
+  /*bool weekly = false;
+  bool daily = false;*/
   double costPerFoot = 16.0;
 
   @override
@@ -86,7 +86,7 @@ class _WashConfirmationState extends State<WashConfirmation> {
             SizedBox(
               height: 15.0,
             ),
-            Column(
+    /*        Column(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
@@ -120,7 +120,7 @@ class _WashConfirmationState extends State<WashConfirmation> {
                       });
                     }),
               ],
-            ),
+            ),*/
             SizedBox(
               height: 15.0,
             ),

@@ -90,49 +90,6 @@ class _WashPageState extends State<WashPage> {
                 }
               }),
             ),SizedBox(height: 10),
-            IGLWashSwitchTile(
-                option: "IGL Leather Protection",
-                optionCost: 300.0,
-                handleChange: (bool value) => setState((){
-                  double num = 300.0;
-                  if(value){
-                    cost +=num;
-                    services['IGL Leather Protection'] = num;
-                  }else{
-                    cost = cost -num;
-                    services.remove('IGL Leather Protection');
-                  }
-                })
-            ),
-            SizedBox(height: 10),
-            IGLWashSwitchTile(
-              option: "IGL Window",
-              optionCost: 400.0,
-              handleChange: (bool value) => setState((){
-                double num = 400.0;
-                if(value){
-                  cost +=num;
-                  services['IGL Window'] = num;
-                }else{
-                  cost = cost -num;
-                  services.remove('IGL Window');
-                }
-              })
-            ),SizedBox(height: 10),
-            IGLWashSwitchTile(
-              option: "IGL Teak",
-              optionCost:400.0,
-              handleChange: (bool value) => setState((){
-                double num = 300.0;
-                if(value){
-                  cost +=num;
-                  services['IGL Teak'] = num;
-                }else{
-                  cost = cost -num;
-                  services.remove("IGL Teak");
-                }
-              }),
-            ),SizedBox(height: 10),
             CabinWashSwitchTile(
               option: "Cabin Maid",
               optionCost: 16.0,

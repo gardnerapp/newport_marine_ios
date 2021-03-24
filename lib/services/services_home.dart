@@ -8,8 +8,6 @@ import 'package:dilibro_boat/services/services_home_drawer.dart';
 import 'package:dilibro_boat/services/wash/wash_page.dart';
 import 'package:flutter/material.dart';
 
-
-
 class ServicesHome extends StatelessWidget {
   final User user;
 
@@ -60,15 +58,6 @@ class ServicesHome extends StatelessWidget {
             ))),
           ),
           //ceramics
-          ServicesTile(
-            asset: "lib/assets/img/ceramics.jpeg",
-            title: "IGL Ceramics Application",
-            subTitle: "Oxidation Removal + Compounding & Polishing ",
-            icon: Icons.colorize,
-            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => IGLHome(
-              user: user,
-            ))),
-          ),
           //dockSide
           ServicesTile(
             asset: "lib/assets/img/dock_side.jpeg",
