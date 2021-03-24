@@ -10,7 +10,7 @@ class ProductPageView extends StatefulWidget {
   @override
   _ProductPageViewState createState() => _ProductPageViewState();
 }
-// TODO get Correct prices from dillibro
+
 class _ProductPageViewState extends State<ProductPageView> {
   double ecoFabric;
   double ecoLeather;

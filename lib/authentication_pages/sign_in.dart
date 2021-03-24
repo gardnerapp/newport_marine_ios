@@ -21,6 +21,8 @@ class _SignInState extends State<SignIn> {
   String password;
   @override
   Widget build(BuildContext context) {
+    print(auth.loginPath);
+    print(auth.resetPasswordPath);
     return  Container(
       padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 25.0),
       child: Form(

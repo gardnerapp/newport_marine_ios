@@ -75,44 +75,10 @@ class _FullDetailState extends State<FullDetail> {
           SizedBox(height: 25),
           Divider(height: 20.0, thickness: 2.5, color: Colors.blueGrey[600]),
           SizedBox(height: 20),
-          instructionText("Select Your Options:"),
-          SizedBox(height: 20),
-          WashSwitchTile(
-            option: "Dock Wash",
-            optionCost: 5.0,
-            handleChange: (bool value) => setState(() {
-              double num = this.widget.user.boat.length * 5.0;
-              if (value) {
-                cost += num;
-                services["Dock Wash"] = num;
-              } else {
-                cost = cost - num;
-                services.remove("Dock Wash");
-              }
-            }),
-          ),
-          SizedBox(height: 20),
-          WashSwitchTile(
-            option: "Deck Hand Clean",
-            optionCost: 5.0,
-            handleChange: (bool value) => setState(() {
-              double num = this.widget.user.boat.length * 5.0;
-              if (value) {
-                cost += num;
-                services["Deck Hand Clean"] = num;
-              } else {
-                cost = cost - num;
-               services.remove("Deck Hand Clean");
-              }
-            }),
-          ),
-          SizedBox(height: 20),
-          Divider(height: 20.0, thickness: 2.5, color: Colors.blueGrey[600]),
-          SizedBox(height: 20),
-          ServicesReceipt(date: selectedDate, time: selectedTime, cost: cost),
-          SizedBox(height: 25),
+          instructionText("Specify Any Unlisted Services Below"),
+          instructionText("Pricing Will Vary"),
           TextFormField(
-            decoration: textInputDecoration("Anything Else ?"),
+            decoration: textInputDecoration("Anything else ?"),
             onChanged: (val){
               setState(() {
                 additionalInstructions = val;
