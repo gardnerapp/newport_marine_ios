@@ -75,8 +75,9 @@ class _FullDetailState extends State<FullDetail> {
           SizedBox(height: 25),
           Divider(height: 20.0, thickness: 2.5, color: Colors.blueGrey[600]),
           SizedBox(height: 20),
-          instructionText("Specify Any Unlisted Services Below"),
+          instructionText("Specify Any Unlisted Services Below\n"),
           instructionText("Pricing Will Vary"),
+          SizedBox(height: 20),
           TextFormField(
             decoration: textInputDecoration("Anything else ?"),
             onChanged: (val){
