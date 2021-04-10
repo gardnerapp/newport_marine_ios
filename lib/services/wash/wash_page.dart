@@ -29,7 +29,7 @@ class _WashPageState extends State<WashPage> {
 
   @override
   initState() {
-    cost = this.widget.user.boat.length * 16.0;//cost per wash foot
+    cost = this.widget.user.boat.length * 13.0;//cost per wash foot
     super.initState();
   }
 

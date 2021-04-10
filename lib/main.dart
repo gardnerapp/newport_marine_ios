@@ -1,19 +1,7 @@
 
 import 'package:dilibro_boat/authentication_pages/auth.dart';
-import 'package:dilibro_boat/app_bar_styling.dart';
-import 'package:dilibro_boat/forms/create_boat.dart';
-import 'package:dilibro_boat/models/boat.dart';
-import 'package:dilibro_boat/services/full_detail/full_detail.dart';
-import 'package:dilibro_boat/services/igl/igl.dart';
-import 'package:dilibro_boat/services/services_home.dart';
-import 'package:dilibro_boat/services/wash/wash_confirmation.dart';
-
-
-import 'package:dilibro_boat/services/wash/wash_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 
-import 'models/user.dart';
 
 
 
@@ -26,8 +14,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      title: 'Newport Marine Detailing',
       theme: ThemeData(
         primaryColorLight: Colors.greenAccent,
         appBarTheme: AppBarTheme(
@@ -43,33 +31,12 @@ class MyApp extends StatelessWidget {
 }
 //1112223333
 //apple101
-
+// TODO first update => allow login if no boat reroute to create boat when clicking on services
+// && edit boat page
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Auth();
-
-      //WashConfirmation();
-     ServicesHome(
-      user: User(
-          name: "Corey",
-          phone: "5555559898",
-          email: "corey@example.com",
-          id: 0,
-          boat: Boat("hog", 22, "location")),
-    );
-    //IGLHome();
-    //  FullDetail();
-
-    //ThankYou();
-    /* WashPage(
-      user: User(
-          name: "Corey",
-          phone: "5555559898",
-          email: "corey@example.com",
-          id: 0,
-          boat: Boat("hog", 22, "location")),
-    );*/
 
   }
 }

@@ -35,8 +35,8 @@ class _DockSideState extends State<DockSide> {
           padding: const EdgeInsets.all(20.0),
           children: <Widget>[
             SizedBox(height: 10),
-            instructionText("Please Include How many hands you will need\n"),
-            instructionText("And Your Time Of Arrival/Departure\n"),
+            instructionText("Please include how many hands you will need\n"),
+            instructionText("And your time of Arrival/Departure\n"),
 
             Divider(height: 20.0, thickness: 2.5, color: Colors.blueGrey[600]),
             SizedBox(height:15),
