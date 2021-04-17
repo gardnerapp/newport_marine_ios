@@ -18,7 +18,7 @@ class FullDetail extends StatefulWidget {
 
 class _FullDetailState extends State<FullDetail> {
   double cost;
-  double costPerFoot;
+  double costPerFoot = 37.0;
   var selectedDate = DateTime.now();
   var selectedTime = TimeOfDay.now();
   String additionalInstructions;
@@ -27,7 +27,7 @@ class _FullDetailState extends State<FullDetail> {
   @override
   initState() {
     var length = widget.user.boat.length;
-    if( length < 30.0){
+    /* if( length < 30.0){
       costPerFoot = 28.0;
     }else if(length > 30.0 && length < 40){
       costPerFoot = 30.0;
@@ -36,8 +36,8 @@ class _FullDetailState extends State<FullDetail> {
     }
     cost = length * costPerFoot;
     super.initState();
+  */
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,9 +59,7 @@ class _FullDetailState extends State<FullDetail> {
           instructionText(
             "Compound Polish/Wax Topside: \n",
           ),
-          instructionText("Boats 20-30 @ \$28 / ft\n"),
-          instructionText("Boats 30-40 @ \$30 / ft\n"),
-          instructionText("Boats 40-100 @ \$37 / ft\n"),
+          instructionText("\$37 / ft\n"),
           SizedBox(height: 15),
           Divider(height: 20.0, thickness: 2.5, color: Colors.blueGrey[600]),
           instructionText(
